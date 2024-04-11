@@ -48,42 +48,42 @@ W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie
 
 
 ## Rezerwacja pokojów:
-System umożliwia przeglądanie dostępnych pokoi w określonym terminie.
-Klienci mogą dokonywać rezerwacji online, wybierając preferowane pokoje i okresy pobytu.
-Personel może dodawać, edytować i anulować rezerwacje, zarządzając dostępnością pokoi.
+- System umożliwia przeglądanie dostępnych pokoi w określonym terminie.
+- Klienci mogą dokonywać rezerwacji online, wybierając preferowane pokoje i okresy pobytu.
+- Personel może dodawać, edytować i anulować rezerwacje, zarządzając dostępnością pokoi.
 
 ## Zarządzanie personelem:
-System umożliwia rejestrację danych personalnych pracowników.
-Personel może przypisywać zadania i harmonogramy pracy pracownikom.
-Generowanie raportów dotyczących wydajności pracowników i analiza potrzeb kadrowych.
+- System umożliwia rejestrację danych personalnych pracowników.
+- Personel może przypisywać zadania i harmonogramy pracy pracownikom.
+- Generowanie raportów dotyczących wydajności pracowników i analiza potrzeb kadrowych.
 
 ## Obsługa klientów:
-Rejestracja przybywających gości i przypisywanie im pokoi.
-Udzielanie informacji na temat usług i udogodnień dostępnych w hotelu.
-Obsługa zgłoszeń, reklamacji i pytań gości.
+- Rejestracja przybywających gości i przypisywanie im pokoi.
+- Udzielanie informacji na temat usług i udogodnień dostępnych w hotelu.
+- Obsługa zgłoszeń, reklamacji i pytań gości.
 
 ## Monitorowanie dostępności zasobów:
-System monitoruje dostępność pokoi, sal konferencyjnych i usług dodatkowych.
-Automatyczne aktualizowanie dostępności na podstawie dokonanych rezerwacji i zmian w stanie zasobów.
+- System monitoruje dostępność pokoi, sal konferencyjnych i usług dodatkowych.
+- Automatyczne aktualizowanie dostępności na podstawie dokonanych rezerwacji i zmian w stanie zasobów.
 
 ## Wydajność:
-System powinien być responsywny i umożliwiać szybkie przetwarzanie rezerwacji oraz operacji związanych z zarządzaniem personelem i klientami.
-Minimalizacja czasu przestoju systemu oraz szybka odpowiedź na zapytania użytkowników.
+- System powinien być responsywny i umożliwiać szybkie przetwarzanie rezerwacji oraz operacji związanych z zarządzaniem personelem i klientami.
+- Minimalizacja czasu przestoju systemu oraz szybka odpowiedź na zapytania użytkowników.
 
 ## Bezpieczeństwo:
-Zapewnienie poufności danych klientów i personelu poprzez odpowiednie mechanizmy uwierzytelniania i autoryzacji.
-Zabezpieczenie przed atakami typu SQL injection, cross-site scripting itp.
+- Zapewnienie poufności danych klientów i personelu poprzez odpowiednie mechanizmy uwierzytelniania i autoryzacji.
+- Zabezpieczenie przed atakami typu SQL injection, cross-site scripting itp.
 
 ## Skalowalność:
-System powinien być łatwo skalowalny, umożliwiając dostosowanie się do zmieniającej się liczby klientów i zasobów hotelu.
-Minimalizacja wpływu skalowania na wydajność i dostępność systemu.
+- System powinien być łatwo skalowalny, umożliwiając dostosowanie się do zmieniającej się liczby klientów i zasobów hotelu.
+- Minimalizacja wpływu skalowania na wydajność i dostępność systemu.
 
 ## Integracja:
-Możliwość integracji z innymi systemami hotelowymi, takimi jak systemy płatności, systemy zarządzania obiektami czy systemy monitoringu.
+- Możliwość integracji z innymi systemami hotelowymi, takimi jak systemy płatności, systemy zarządzania obiektami czy systemy monitoringu.
 
 ## Łatwość obsługi:
-Interfejs użytkownika powinien być intuicyjny i łatwy w obsłudze zarówno dla personelu, jak i klientów.
-Dostępność dokumentacji i wsparcia technicznego dla użytkowników systemu.
+- Interfejs użytkownika powinien być intuicyjny i łatwy w obsłudze zarówno dla personelu, jak i klientów.
+- Dostępność dokumentacji i wsparcia technicznego dla użytkowników systemu.
 
 
 
