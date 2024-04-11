@@ -32,7 +32,7 @@ There are tables for employees, clients, rooms, reservations, complaints and sup
 Celem projektu jest stworzenie systemu obsługi hotelowej działającego w oparciu o relacyjną bazę danych. System ten ma za zadanie usprawnić zarządzanie różnymi aspektami funkcjonowania hotelu, takimi jak rezerwacje pokojów, zarządzanie personelem, obsługa klientów oraz monitorowanie dostępności zasobów.
 
 ## Rezerwacja pokojów
-Centralnym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami, tworzyć nowe oraz monitorować obłożenie hotelu w różnych okresach czasowych.
+Głównym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami, tworzyć nowe oraz monitorować obłożenie hotelu w różnych okresach czasowych.
 
 ## Zarządzanie personelem
 System będzie również zawierał moduł do zarządzania personelem hotelowym. Będzie on umożliwiał rejestrowanie danych pracowników, przypisywanie im odpowiednich obowiązków oraz monitorowanie czasu pracy.
@@ -84,11 +84,6 @@ Możliwość integracji z innymi systemami hotelowymi, takimi jak systemy płatn
 ## Łatwość obsługi:
 Interfejs użytkownika powinien być intuicyjny i łatwy w obsłudze zarówno dla personelu, jak i klientów.
 Dostępność dokumentacji i wsparcia technicznego dla użytkowników systemu.
-
-
-
-
-
 
 # 3.	Projekt bazy danych
 
