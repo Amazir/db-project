@@ -27,7 +27,7 @@ Project for DB Systems lesson.
 - Kamil Rydarowicz
 - Michał Karelus
 ---
-penis
+
 
 # 1.  Zakres i krótki opis systemu
 
