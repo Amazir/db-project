@@ -70,11 +70,11 @@ Automatyczne aktualizowanie dostępności na podstawie dokonanych rezerwacji i z
 System powinien być responsywny i umożliwiać szybkie przetwarzanie rezerwacji oraz operacji związanych z zarządzaniem personelem i klientami.
 Minimalizacja czasu przestoju systemu oraz szybka odpowiedź na zapytania użytkowników.
 
-##Bezpieczeństwo:
+## Bezpieczeństwo:
 Zapewnienie poufności danych klientów i personelu poprzez odpowiednie mechanizmy uwierzytelniania i autoryzacji.
 Zabezpieczenie przed atakami typu SQL injection, cross-site scripting itp.
 
-##Skalowalność:
+## Skalowalność:
 System powinien być łatwo skalowalny, umożliwiając dostosowanie się do zmieniającej się liczby klientów i zasobów hotelu.
 Minimalizacja wpływu skalowania na wydajność i dostępność systemu.
 
