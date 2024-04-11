@@ -21,8 +21,11 @@ Project for DB Systems lesson.
 
 **Temat:** (zwięzła nazwa projektowanego systemu)
 
-**Autorzy:** (Imiona i nazwiska autorów)
-
+**Autorzy:** 
+- Michał Romaszewski
+- Robert Kania
+- Kamil Rydarowicz
+- Michał Karelus
 --- 
 
 # 1.  Zakres i krótki opis systemu
