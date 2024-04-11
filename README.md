@@ -32,20 +32,19 @@ Baza danych dla hotelu
 
 # 1.  Zakres i krótki opis systemu
 
-Zakres i krótki opis systemu
+##Zakres i krótki opis systemu
 Celem projektu jest stworzenie kompleksowego systemu obsługi hotelowej działającego w oparciu o relacyjną bazę danych. System ten ma za zadanie usprawnić zarządzanie różnymi aspektami funkcjonowania hotelu, takimi jak rezerwacje pokojów, zarządzanie personelem, obsługa klientów oraz monitorowanie dostępności zasobów.
 
-Rezerwacja pokojów
+##Rezerwacja pokojów
 Centralnym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami, tworzyć nowe oraz monitorować obłożenie hotelu w różnych okresach czasowych.
 
-Zarządzanie personelem
+##Zarządzanie personelem
 System będzie również zawierał moduł do zarządzania personelem hotelowym. Będzie on umożliwiał rejestrowanie danych pracowników, przypisywanie im odpowiednich obowiązków oraz monitorowanie czasu pracy. Ponadto, będzie zawierał funkcje generowania raportów dotyczących wydajności personelu oraz analizy potrzeb kadrowych w różnych okresach roku.
 
-Obsługa klientów
+##Obsługa klientów
 Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień, jak również obsługę zgłoszeń i reklamacji. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów i ich lojalność.
 
-Monitorowanie dostępności zasobów
-
+##Monitorowanie dostępności zasobów
 Ostatnim, ale równie istotnym elementem systemu będzie możliwość monitorowania dostępności zasobów hotelowych, takich jak pokoje, sale konferencyjne czy usługi dodatkowe. Dzięki temu hotel będzie mógł efektywnie zarządzać swoimi zasobami, unikając sytuacji, w której występuje niedobór lub nadmiar danego zasobu.
 W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie swoimi zasobami, zwiększenie rentowności działalności oraz poprawę jakości obsługi klienta. Dodatkowo, umożliwi on gromadzenie i analizę danych, co pozwoli na podejmowanie lepiej ugruntowanych decyzji biznesowych w przyszłości.
 
