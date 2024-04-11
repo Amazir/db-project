@@ -19,7 +19,8 @@ Project for DB Systems lesson.
 ---
 
 
-**Temat:** (zwięzła nazwa projektowanego systemu)
+**Temat:** 
+Baza danych dla hotelu
 
 **Autorzy:** 
 - Michał Romaszewski
@@ -27,11 +28,12 @@ Project for DB Systems lesson.
 - Kamil Rydarowicz
 - Michał Karelus
 ---
-penis
+
 
 # 1.  Zakres i krótki opis systemu
 
 (np. Cel projektu, słowny opis realizowanego systemu systemu)
+Stworzenie relacyjnej bazy danych obsługującej hotel wraz z jego różnymi systemami np. rezerwacja pokojów.
 
 
 # 2.	Wymagania i funkcje systemu
