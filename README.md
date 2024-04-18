@@ -40,6 +40,9 @@ Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejm
 Ostatnim, ale równie istotnym elementem systemu będzie możliwość monitorowania dostępności zasobów hotelowych, takich jak pokoje, sale konferencyjne czy usługi dodatkowe. Dzięki temu hotel będzie mógł efektywnie zarządzać swoimi zasobami, unikając sytuacji, w której występuje niedobór lub nadmiar danego zasobu.
 W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie swoimi zasobami. Dodatkowo, umożliwi on gromadzenie i analizę danych, co pozwoli na podejmowanie lepszych decyzji zaopatrzeniowych w przyszłości.
 
+## Usługi gastronomiczne
+Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wysoką jakość posiłków i napojów, które spełnią oczekiwania nawet najbardziej wymagających gości.
+
 # 2.	Wymagania i funkcje systemu
 
 
@@ -56,6 +59,13 @@ W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie
 ## Monitorowanie dostępności zasobów:
 - System monitoruje dostępność pokoi, sal konferencyjnych i usług dodatkowych.
 - Automatyczne aktualizowanie dostępności na podstawie dokonanych rezerwacji i zmian w stanie zasobów.
+
+## Usługi gastronomiczne
+- Restauracje: Hotel będzie dysponować różnymi restauracjami, które serwują potrawy kuchni lokalnej i międzynarodowej. Goście będą mieli możliwość wyboru spośród restauracji o różnych charakterach i atmosferze, aby dostosować swoje doświadczenie gastronomiczne do swoich preferencji.
+- Bufety: Hotel może organizować bufety tematyczne lub bufety śniadaniowe, które zapewnią gościom szeroki wybór potraw i napojów na różne porze dnia.
+- Bar i kawiarnia: Dla osób poszukujących relaksu i chwili wytchnienia, hotel może oferować bar oraz kawiarnię, gdzie goście mogą delektować się różnorodnymi napojami, przekąskami i deserami.
+- Usługa room service: Hotel będzie świadczył usługę room service, umożliwiając gościom zamawianie posiłków i napojów bezpośrednio do swojego pokoju, aby mogli cieszyć się wygodą i prywatnością podczas spożywania posiłków.
+- Katering i bankiety: Hotel może organizować katering dla różnych wydarzeń, takich jak spotkania biznesowe, konferencje czy uroczyste bankiety, zapewniając wysokiej jakości jedzenie i profesjonalną obsługę.
 
 # 3.	Projekt bazy danych
 
