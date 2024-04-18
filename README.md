@@ -22,7 +22,6 @@ There are tables for employees, clients, rooms, reservations, complaints and sup
 - Michał Romaszewski
 - Robert Kania
 - Kamil Rydarowicz
-- Michał Karelus
 ---
 
 
