@@ -61,11 +61,9 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 - Automatyczne aktualizowanie dostępności na podstawie dokonanych rezerwacji i zmian w stanie zasobów.
 
 ## Usługi gastronomiczne
-- Restauracje: Hotel będzie dysponować różnymi restauracjami, które serwują potrawy kuchni lokalnej i międzynarodowej. Goście będą mieli możliwość wyboru spośród restauracji o różnych charakterach i atmosferze, aby dostosować swoje doświadczenie gastronomiczne do swoich preferencji.
-- Bufety: Hotel może organizować bufety tematyczne lub bufety śniadaniowe, które zapewnią gościom szeroki wybór potraw i napojów na różne porze dnia.
-- Bar i kawiarnia: Dla osób poszukujących relaksu i chwili wytchnienia, hotel może oferować bar oraz kawiarnię, gdzie goście mogą delektować się różnorodnymi napojami, przekąskami i deserami.
-- Usługa room service: Hotel będzie świadczył usługę room service, umożliwiając gościom zamawianie posiłków i napojów bezpośrednio do swojego pokoju, aby mogli cieszyć się wygodą i prywatnością podczas spożywania posiłków.
-- Katering i bankiety: Hotel może organizować katering dla różnych wydarzeń, takich jak spotkania biznesowe, konferencje czy uroczyste bankiety, zapewniając wysokiej jakości jedzenie i profesjonalną obsługę.
+- Bufety: Hotel organizuje bufety tematyczne lub bufety śniadaniowe, które zapewnią gościom szeroki wybór potraw i napojów na różne porze dnia.
+- Bar i kawiarnia: Dla klientów hotel oferuje bar oraz kawiarnię, gdzie goście mogą delektować się różnorodnymi napojami, przekąskami i deserami.
+- Usługa room service: Hotel będzie świadczył usługę room service, umożliwiając gościom zamawianie posiłków i napojów bezpośrednio do swojego pokoju.
 
 # 3.	Projekt bazy danych
 
