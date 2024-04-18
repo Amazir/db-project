@@ -75,17 +75,27 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 
 ## Opis poszczególnych tabel
 
-(Dla każdej tabeli opis w formie tabelki)
+customers: 
+- Opis: tabela zawierające dane klientów.
 
+| Nazwa atrybutu | Typ     | Opis/Uwagi       |
+|----------------|---------|------------------|
+| customerid     | int     | primary key      |
+| firstname      | varchar | imię klienta     |
+| lastname       | varchar | nazwisko klienta |
+| address        | varchar | adres klienta    |
 
-Nazwa tabeli: (nazwa tabeli)
-- Opis: (opis tabeli, komentarz)
+reservations: 
+- Opis: tabela zawierające rezerwacje.
 
-| Nazwa atrybutu | Typ  | Opis/Uwagi |
-|----------------|------|------------|
-| Atrybut 1 …    |      |            |
-| Atrybut 2 …    |      |            |
-
+| Nazwa atrybutu | Typ  | Opis/Uwagi        |
+|----------------|------|-------------------|
+| reservationid  | int  | primary key       |
+| roomid         | int  | fk dla rooms      |
+| customerid     | int  | fk dla customers  |
+| start_date     | date | data zameldowania |
+| end_date       | date | data wymeldowania |
+| paymentid      | int  | fk dla payments   |
 
 # 4.	Implementacja
 
