@@ -34,9 +34,6 @@ Celem projektu jest stworzenie systemu obsługi hotelowej działającego w oparc
 ## Rezerwacja pokojów
 Głównym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami, tworzyć nowe oraz monitorować obłożenie hotelu w różnych okresach czasowych.
 
-## Zarządzanie personelem
-System będzie również zawierał moduł do zarządzania personelem hotelowym. Będzie on umożliwiał rejestrowanie danych pracowników, przypisywanie im odpowiednich obowiązków oraz monitorowanie czasu pracy.
-
 ## Obsługa klientów
 Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień, jak również obsługę zgłoszeń i reklamacji. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów i ich lojalność.
 
@@ -52,11 +49,6 @@ W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie
 - Klienci mogą dokonywać rezerwacji online, wybierając preferowane pokoje i okresy pobytu.
 - Personel może dodawać, edytować i anulować rezerwacje, zarządzając dostępnością pokoi.
 
-## Zarządzanie personelem:
-- System umożliwia rejestrację danych personalnych pracowników.
-- Personel może przypisywać zadania i harmonogramy pracy pracownikom.
-- Generowanie raportów dotyczących wydajności pracowników i analiza potrzeb kadrowych.
-
 ## Obsługa klientów:
 - Rejestracja przybywających gości i przypisywanie im pokoi.
 - Udzielanie informacji na temat usług i udogodnień dostępnych w hotelu.
@@ -65,25 +57,6 @@ W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie
 ## Monitorowanie dostępności zasobów:
 - System monitoruje dostępność pokoi, sal konferencyjnych i usług dodatkowych.
 - Automatyczne aktualizowanie dostępności na podstawie dokonanych rezerwacji i zmian w stanie zasobów.
-
-## Wydajność:
-- System powinien być responsywny i umożliwiać szybkie przetwarzanie rezerwacji oraz operacji związanych z zarządzaniem personelem i klientami.
-- Minimalizacja czasu przestoju systemu oraz szybka odpowiedź na zapytania użytkowników.
-
-## Bezpieczeństwo:
-- Zapewnienie poufności danych klientów i personelu poprzez odpowiednie mechanizmy uwierzytelniania i autoryzacji.
-- Zabezpieczenie przed atakami typu SQL injection, cross-site scripting itp.
-
-## Skalowalność:
-- System powinien być łatwo skalowalny, umożliwiając dostosowanie się do zmieniającej się liczby klientów i zasobów hotelu.
-- Minimalizacja wpływu skalowania na wydajność i dostępność systemu.
-
-## Integracja:
-- Możliwość integracji z innymi systemami hotelowymi, takimi jak systemy płatności, systemy zarządzania obiektami czy systemy monitoringu.
-
-## Łatwość obsługi:
-- Interfejs użytkownika powinien być intuicyjny i łatwy w obsłudze zarówno dla personelu, jak i klientów.
-- Dostępność dokumentacji i wsparcia technicznego dla użytkowników systemu.
 
 # 3.	Projekt bazy danych
 
