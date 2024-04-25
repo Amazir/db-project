@@ -28,17 +28,17 @@ There are tables for employees, clients, rooms, reservations, complaints and sup
 # 1.  Zakres i krótki opis systemu
 
 ## Zakres i krótki opis systemu
-Celem projektu jest stworzenie systemu obsługi hotelowej działającego w oparciu o relacyjną bazę danych. System ten ma za zadanie usprawnić zarządzanie różnymi aspektami funkcjonowania hotelu, takimi jak rezerwacje pokojów, zarządzanie personelem, obsługa klientów oraz monitorowanie dostępności zasobów.
+Celem projektu jest stworzenie systemu obsługi hotelowej działającego w oparciu o relacyjną bazę danych. System ten ma za zadanie usprawnić zarządzanie różnymi aspektami funkcjonowania hotelu, takimi jak rezerwacje pokojów, obsługa klientów oraz monitorowanie dostępności zasobów.
 
 ## Rezerwacja pokojów
-Głównym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami, tworzyć nowe oraz monitorować obłożenie hotelu w różnych okresach czasowych.
+Głównym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami oraz tworzyć nowe.
 
 ## Obsługa klientów
-Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień, jak również obsługę zgłoszeń i reklamacji. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów i ich lojalność.
+Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów.
 
 ## Monitorowanie dostępności zasobów
-Ostatnim, ale równie istotnym elementem systemu będzie możliwość monitorowania dostępności zasobów hotelowych, takich jak pokoje, sale konferencyjne czy usługi dodatkowe. Dzięki temu hotel będzie mógł efektywnie zarządzać swoimi zasobami, unikając sytuacji, w której występuje niedobór lub nadmiar danego zasobu.
-W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie swoimi zasobami. Dodatkowo, umożliwi on gromadzenie i analizę danych, co pozwoli na podejmowanie lepszych decyzji zaopatrzeniowych w przyszłości.
+Ostatnim, ale równie istotnym elementem systemu będzie możliwość monitorowania dostępności zasobów hotelowych, takich jak pokoje czy usługi dodatkowe. Dzięki temu hotel będzie mógł efektywnie zarządzać swoimi zasobami, unikając sytuacji, w której występuje niedobór lub nadmiar danego zasobu.
+W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie swoimi zasobami.
 
 ## Usługi gastronomiczne
 Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wysoką jakość posiłków i napojów, które spełnią oczekiwania nawet najbardziej wymagających gości.
@@ -54,7 +54,6 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 ## Obsługa klientów:
 - Rejestracja przybywających gości i przypisywanie im pokoi.
 - Udzielanie informacji na temat usług i udogodnień dostępnych w hotelu.
-- Obsługa zgłoszeń, reklamacji i pytań gości.
 
 ## Monitorowanie dostępności zasobów:
 - System monitoruje dostępność pokoi, sal konferencyjnych i usług dodatkowych.
@@ -97,7 +96,7 @@ reservations:
 | start_date     | date | data zameldowania |
 | end_date       | date | data wymeldowania |
 | paymentid      | int  | fk dla payments   |
-| total          | int  | całość zapłaty    |
+| total          | int  | kwota do zapłaty  |
 
 payments:
 - Opis: tabela zawierająca płatność
@@ -105,8 +104,8 @@ payments:
 | Nazwa atrybutu   | Typ  | Opis/Uwagi             |
 |------------------|------|------------------------|
 | paymentid        | int  | primary key            |
-| total            | int  | pełna kwota            |
-| advance          | int  |                        |
+| total            | int  | kwota do zapłaty       |
+| advance          | int  | zaliczka               |
 | orderid          | int  | fk dla orders          |
 | payment_methodid | int  | fk dla payment_methods |
 
@@ -131,14 +130,14 @@ payment_methods:
 orders:
 - Opis: tabela zawierająca zamówienia
 
-| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
-|------------------|----------|------------------------|
-| orderid          | int      | primary key            |
-| customerid       | int      | fk dla customerid      |
-| productid        | int      | fk dla productid       |
-| companyname      | varchar  | nazwa firmy            |
-| orderdate        | varchar  | data zamówienia        |
-| total            | int      | pełna platność         |
+| Nazwa atrybutu   | Typ      | Opis/Uwagi        |
+|------------------|----------|-------------------|
+| orderid          | int      | primary key       |
+| customerid       | int      | fk dla customerid |
+| productid        | int      | fk dla productid  |
+| companyname      | varchar  | nazwa firmy       |
+| orderdate        | varchar  | data zamówienia   |
+| total            | int      | kwota do zapłaty  |
 
 products:
 - Opis: tabela zawierająca produkty
