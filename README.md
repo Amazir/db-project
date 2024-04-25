@@ -67,7 +67,7 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 ## Schemat bazy danych
 
 (diagram (rysunek) przedstawiający schemat bazy danych)
-[<img src="https://my.vertabelo.com/model-download-print/PwbGfKHIZlDrOxrIPVjfyMDSlFsxiQsM">](https://link-to-your-URL/)
+[<img src="https://github.com/PoteznySquad/db-project/blob/main/schema.svg">]
 
 ## Opis poszczególnych tabel
 
