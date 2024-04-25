@@ -61,8 +61,6 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 - Automatyczne aktualizowanie dostępności na podstawie dokonanych rezerwacji i zmian w stanie zasobów.
 
 ## Usługi gastronomiczne
-- Bufety: Hotel organizuje bufety tematyczne lub bufety śniadaniowe, które zapewnią gościom szeroki wybór potraw i napojów na różne porze dnia.
-- Bar i kawiarnia: Dla klientów hotel oferuje bar oraz kawiarnię, gdzie goście mogą delektować się różnorodnymi napojami, przekąskami i deserami.
 - Usługa room service: Hotel będzie świadczył usługę room service, umożliwiając gościom zamawianie posiłków i napojów bezpośrednio do swojego pokoju.
 
 # 3.	Projekt bazy danych
@@ -102,7 +100,7 @@ reservations:
 | total          | int  | całość zapłaty    |
 
 payments:
--Opis: tabela zawierająca płatność
+- Opis: tabela zawierająca płatność
 
 | Nazwa atrybutu   | Typ  | Opis/Uwagi             |
 |------------------|------|------------------------|
@@ -113,7 +111,7 @@ payments:
 | payment_methodid | int  | fk dla payment_methods |
 
 rooms:
--Opis: tabela zawierająca pokoje
+- Opis: tabela zawierająca pokoje
 
 | Nazwa atrybutu   | Typ  | Opis/Uwagi             |
 |------------------|------|------------------------|
@@ -123,14 +121,14 @@ rooms:
 | price            | int  | cena pokoju            |
 
 payment_methods:
--Opis: tabela zawierająca metody płatności
+- Opis: tabela zawierająca metody płatności
 | Nazwa atrybutu   | Typ     | Opis/Uwagi             |
 |------------------|---------|------------------------|
 | payment_methodsid| int     | primary key            |
 | name             | varchar | nazwa płatności        |
 
 orders:
--Opis: tabela zawierająca zamówienia
+- Opis: tabela zawierająca zamówienia
 
 | Nazwa atrybutu   | Typ      | Opis/Uwagi             |
 |------------------|----------|------------------------|
@@ -142,7 +140,7 @@ orders:
 | total            | int      | pełna platność         |
 
 products:
--Opis: tabela zawierająca produkty
+- Opis: tabela zawierająca produkty
 
 | Nazwa atrybutu   | Typ  | Opis/Uwagi             |
 |------------------|------|------------------------|
@@ -153,7 +151,7 @@ products:
 | prouctname       | int  | nazwa produktu         |
 
 suppliers:
--Opis: tabela zawierająca dostawców
+- Opis: tabela zawierająca dostawców
 
 | Nazwa atrybutu   | Typ      | Opis/Uwagi             |
 |------------------|----------|------------------------|
