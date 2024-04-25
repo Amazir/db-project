@@ -67,7 +67,7 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 ## Schemat bazy danych
 
 (diagram (rysunek) przedstawiający schemat bazy danych)
-[<img src="https://github.com/PoteznySquad/db-project/blob/main/schema.svg">]
+[<img src="https://my.vertabelo.com/model-download-print/PwbGfKHIZlDrOxrIPVjfyMDSlFsxiQsM">](https://link-to-your-URL/)
 
 ## Opis poszczególnych tabel
 
@@ -84,40 +84,46 @@ customers:
 | city           | varchar | miasto klienta        |
 | country        | varchar | kraj klienta          |
 | post_code      | varchar | kod pocztowy klienta  |
+| region         | varchar | region klienta        |
+| birthdate      | date    | data urodzin klienta  |
+| pesel          | int     | pesel klienta         |
+| photopath      | varchar | zdjęcie klienta       |
+| notes          | text    | notatka o kliencie    |
+| fax            | varchar | fax klienta           |
 
 reservations:
 - Opis: tabela zawierająca rezerwacje.
 
-| Nazwa atrybutu | Typ  | Opis/Uwagi        |
-|----------------|------|-------------------|
-| reservationid  | int  | primary key       |
-| roomid         | int  | fk dla rooms      |
-| customerid     | int  | fk dla customers  |
-| start_date     | date | data zameldowania |
-| end_date       | date | data wymeldowania |
-| paymentid      | int  | fk dla payments   |
-| total          | int  | kwota do zapłaty  |
+| Nazwa atrybutu | Typ      | Opis/Uwagi        |
+|----------------|----------|-------------------|
+| reservationid  | int      | primary key       |
+| customerid     | int      | fk dla customers  |
+| start_date     | date     | data zameldowania |
+| end_date       | date     | data wymeldowania |
+| paymentid      | int      | fk dla payments   |
+| total          | decimal  | kwota do zapłaty  |
+| roomid         | int      | fk dla rooms      |
 
 payments:
 - Opis: tabela zawierająca płatność
 
-| Nazwa atrybutu   | Typ  | Opis/Uwagi             |
-|------------------|------|------------------------|
-| paymentid        | int  | primary key            |
-| total            | int  | kwota do zapłaty       |
-| advance          | int  | zaliczka               |
-| orderid          | int  | fk dla orders          |
-| payment_methodid | int  | fk dla payment_methods |
+| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
+|------------------|----------|------------------------|
+| paymentid        | int      | primary key            |
+| total            | decimal  | kwota do zapłaty       |
+| advance          | decimal  | zaliczka               |
+| orderid          | int      | fk dla orders          |
+| payment_methodid | int      | fk dla payment_methods |
 
 rooms:
 - Opis: tabela zawierająca pokoje
 
-| Nazwa atrybutu   | Typ  | Opis/Uwagi             |
-|------------------|------|------------------------|
-| roomid           | int  | primary key            |
-| persons          | int  | ilość osób w pokoju    |
-| beds             | int  | ilość łóżek w pokoju   |
-| price            | int  | cena pokoju            |
+| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
+|------------------|----------|------------------------|
+| roomid           | int      | primary key            |
+| price            | decimal  | cena pokoju            |
+| reservationid    | int      | fk dla reservations    |
+| roomtypeid       | int      | fk dla roomtypeid      |
 
 payment_methods:
 - Opis: tabela zawierająca metody płatności
@@ -126,29 +132,34 @@ payment_methods:
 |------------------|---------|------------------------|
 | payment_methodsid| int     | primary key            |
 | name             | varchar | nazwa płatności        |
+| paymentid        | int     | fk dla paymentid       |
 
 orders:
 - Opis: tabela zawierająca zamówienia
 
-| Nazwa atrybutu   | Typ      | Opis/Uwagi        |
-|------------------|----------|-------------------|
-| orderid          | int      | primary key       |
-| customerid       | int      | fk dla customerid |
-| productid        | int      | fk dla productid  |
-| companyname      | varchar  | nazwa firmy       |
-| orderdate        | varchar  | data zamówienia   |
-| total            | int      | kwota do zapłaty  |
+| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
+|------------------|----------|------------------------|
+| orderid          | int      | primary key            |
+| productid        | int      | fk dla productid       |
+| orderdate        | date     | data zamówienia        |
+| total            | decimal  | kwota do zapłaty       |
+| status           | varchar  | status zamówienia      |
+| tip              | decimal  | napiwek                |
+| discount         | decimal  | zniżka                 |
+| reservationid    | int      | fk dla reservations    |
+
 
 products:
 - Opis: tabela zawierająca produkty
 
-| Nazwa atrybutu   | Typ  | Opis/Uwagi             |
-|------------------|------|------------------------|
-| productid        | int  | primary key            |
-| supplierid       | int  | fk dla supplierid      |
-| unitprice        | int  | cena produktu          |
-| unitsinstock     | int  | ilość produktów        |
-| prouctname       | int  | nazwa produktu         |
+| Nazwa atrybutu   | Typ      | Opis/Uwagi                  |
+|------------------|----------|-----------------------------|
+| productid        | int      | primary key                 |
+| supplierid       | int      | fk dla supplierid           |
+| unitprice        | decimal  | cena produktu               |
+| unitsinstock     | int      | ilość produktów             |
+| utnitsinorder    | int      | ilość zamówionych produktów |
+| prouctname       | int      | nazwa produktu              |
 
 suppliers:
 - Opis: tabela zawierająca dostawców
@@ -158,6 +169,15 @@ suppliers:
 | supplierid       | int      | primary key            |
 | companyname      | varchar  | nazwa firmy            |
 
+room_type
+- Opis: tabela zawierająca typy pokojów
+
+| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
+|------------------|----------|------------------------|
+| room_typid       | int      | primary key            |
+| beds             | int      | ilość łóżek w pokoju   |
+| persons          | int      | ilość osób na pokój    |
+| description      | varchar  | opis pokoju            |
 
 
 
