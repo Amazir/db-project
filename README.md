@@ -169,7 +169,7 @@ suppliers:
 | supplierid       | int      | primary key            |
 | companyname      | varchar  | nazwa firmy            |
 
-room_typ
+room_type
 - Opis: tabela zawierająca typy pokojów
 
 | Nazwa atrybutu   | Typ      | Opis/Uwagi             |
