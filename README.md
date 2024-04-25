@@ -28,17 +28,17 @@ There are tables for employees, clients, rooms, reservations, complaints and sup
 # 1.  Zakres i krótki opis systemu
 
 ## Zakres i krótki opis systemu
-Celem projektu jest stworzenie systemu obsługi hotelowej działającego w oparciu o relacyjną bazę danych. System ten ma za zadanie usprawnić zarządzanie różnymi aspektami funkcjonowania hotelu, takimi jak rezerwacje pokojów, zarządzanie personelem, obsługa klientów oraz monitorowanie dostępności zasobów.
+Celem projektu jest stworzenie systemu obsługi hotelowej działającego w oparciu o relacyjną bazę danych. System ten ma za zadanie usprawnić zarządzanie różnymi aspektami funkcjonowania hotelu, takimi jak rezerwacje pokojów, obsługa klientów oraz monitorowanie dostępności zasobów.
 
 ## Rezerwacja pokojów
-Głównym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami, tworzyć nowe oraz monitorować obłożenie hotelu w różnych okresach czasowych.
+Głównym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami oraz tworzyć nowe.
 
 ## Obsługa klientów
-Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień, jak również obsługę zgłoszeń i reklamacji. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów i ich lojalność.
+Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów.
 
 ## Monitorowanie dostępności zasobów
-Ostatnim, ale równie istotnym elementem systemu będzie możliwość monitorowania dostępności zasobów hotelowych, takich jak pokoje, sale konferencyjne czy usługi dodatkowe. Dzięki temu hotel będzie mógł efektywnie zarządzać swoimi zasobami, unikając sytuacji, w której występuje niedobór lub nadmiar danego zasobu.
-W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie swoimi zasobami. Dodatkowo, umożliwi on gromadzenie i analizę danych, co pozwoli na podejmowanie lepszych decyzji zaopatrzeniowych w przyszłości.
+Ostatnim, ale równie istotnym elementem systemu będzie możliwość monitorowania dostępności zasobów hotelowych, takich jak pokoje czy usługi dodatkowe. Dzięki temu hotel będzie mógł efektywnie zarządzać swoimi zasobami, unikając sytuacji, w której występuje niedobór lub nadmiar danego zasobu.
+W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie swoimi zasobami.
 
 ## Usługi gastronomiczne
 Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wysoką jakość posiłków i napojów, które spełnią oczekiwania nawet najbardziej wymagających gości.
@@ -54,7 +54,6 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 ## Obsługa klientów:
 - Rejestracja przybywających gości i przypisywanie im pokoi.
 - Udzielanie informacji na temat usług i udogodnień dostępnych w hotelu.
-- Obsługa zgłoszeń, reklamacji i pytań gości.
 
 ## Monitorowanie dostępności zasobów:
 - System monitoruje dostępność pokoi, sal konferencyjnych i usług dodatkowych.
@@ -68,7 +67,7 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 ## Schemat bazy danych
 
 (diagram (rysunek) przedstawiający schemat bazy danych)
-[<img src="https://github.com/PoteznySquad/db-project/blob/main/schema.svg">]
+[<img src="https://my.vertabelo.com/model-download-print/PwbGfKHIZlDrOxrIPVjfyMDSlFsxiQsM">](https://link-to-your-URL/)
 
 ## Opis poszczególnych tabel
 
@@ -95,38 +94,36 @@ customers:
 reservations:
 - Opis: tabela zawierająca rezerwacje.
 
-| Nazwa atrybutu | Typ  | Opis/Uwagi        |
-|----------------|------|-------------------|
-| reservationid  | int  | primary key       |
-| roomid         | int  | fk dla rooms      |
-| customerid     | int  | fk dla customers  |
-| start_date     | date | data zameldowania |
-| end_date       | date | data wymeldowania |
-| paymentid      | int  | fk dla payments   |
-| total          | int  | całość zapłaty    |
-| orderid        | int  | fk dla orders     |
+| Nazwa atrybutu | Typ      | Opis/Uwagi        |
+|----------------|----------|-------------------|
+| reservationid  | int      | primary key       |
+| customerid     | int      | fk dla customers  |
+| start_date     | date     | data zameldowania |
+| end_date       | date     | data wymeldowania |
+| paymentid      | int      | fk dla payments   |
+| total          | decimal  | kwota do zapłaty  |
+| roomid         | int      | fk dla rooms      |
 
 payments:
 - Opis: tabela zawierająca płatność
 
-| Nazwa atrybutu   | Typ  | Opis/Uwagi             |
-|------------------|------|------------------------|
-| paymentid        | int  | primary key            |
-| total            | int  | pełna kwota            |
-| advance          | int  |                        |
-| orderid          | int  | fk dla orders          |
-| payment_methodid | int  | fk dla payment_methods |
+| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
+|------------------|----------|------------------------|
+| paymentid        | int      | primary key            |
+| total            | decimal  | kwota do zapłaty       |
+| advance          | decimal  | zaliczka               |
+| orderid          | int      | fk dla orders          |
+| payment_methodid | int      | fk dla payment_methods |
 
 rooms:
 - Opis: tabela zawierająca pokoje
 
-| Nazwa atrybutu   | Typ  | Opis/Uwagi             |
-|------------------|------|------------------------|
-| roomid           | int  | primary key            |
-| persons          | int  | ilość osób w pokoju    |
-| beds             | int  | ilość łóżek w pokoju   |
-| price            | int  | cena pokoju            |
-| reservationid    | int  | fk dla reservations    |
+| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
+|------------------|----------|------------------------|
+| roomid           | int      | primary key            |
+| price            | decimal  | cena pokoju            |
+| reservationid    | int      | fk dla reservations    |
+| roomtypeid       | int      | fk dla roomtypeid      |
 
 payment_methods:
 - Opis: tabela zawierająca metody płatności
@@ -135,6 +132,7 @@ payment_methods:
 |------------------|---------|------------------------|
 | payment_methodsid| int     | primary key            |
 | name             | varchar | nazwa płatności        |
+| paymentid        | int     | fk dla paymentid       |
 
 orders:
 - Opis: tabela zawierająca zamówienia
@@ -144,23 +142,24 @@ orders:
 | orderid          | int      | primary key            |
 | productid        | int      | fk dla productid       |
 | orderdate        | date     | data zamówienia        |
-| total            | decimal  | pełna platność         |
+| total            | decimal  | kwota do zapłaty       |
 | status           | varchar  | status zamówienia      |
 | tip              | decimal  | napiwek                |
 | discount         | decimal  | zniżka                 |
 | reservationid    | int      | fk dla reservations    |
 
+
 products:
 - Opis: tabela zawierająca produkty
 
-| Nazwa atrybutu   | Typ  | Opis/Uwagi                  |
-|------------------|------|-----------------------------|
-| productid        | int  | primary key                 |
-| supplierid       | int  | fk dla supplierid           |
-| unitprice        | int  | cena produktu               |
-| unitsinstock     | int  | ilość produktów             |
-| utnitsinorder    | int  | ilość zamówionych produktów |
-| prouctname       | int  | nazwa produktu              |
+| Nazwa atrybutu   | Typ      | Opis/Uwagi                  |
+|------------------|----------|-----------------------------|
+| productid        | int      | primary key                 |
+| supplierid       | int      | fk dla supplierid           |
+| unitprice        | decimal  | cena produktu               |
+| unitsinstock     | int      | ilość produktów             |
+| utnitsinorder    | int      | ilość zamówionych produktów |
+| prouctname       | int      | nazwa produktu              |
 
 suppliers:
 - Opis: tabela zawierająca dostawców
@@ -176,6 +175,9 @@ room_typ
 | Nazwa atrybutu   | Typ      | Opis/Uwagi             |
 |------------------|----------|------------------------|
 | room_typid       | int      | primary key            |
+| beds             | int      | ilość łóżek w pokoju   |
+| persons          | int      | ilość osób na pokój    |
+| description      | varchar  | opis pokoju            |
 
 
 
