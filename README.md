@@ -122,6 +122,7 @@ rooms:
 
 payment_methods:
 - Opis: tabela zawierająca metody płatności
+
 | Nazwa atrybutu   | Typ     | Opis/Uwagi             |
 |------------------|---------|------------------------|
 | payment_methodsid| int     | primary key            |
