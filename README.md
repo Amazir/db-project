@@ -74,35 +74,34 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 customers:
 - Opis: tabela zawierające dane klientów.
 
-| Nazwa atrybutu | Typ     | Opis/Uwagi            |
-|----------------|---------|-----------------------|
-| customerid     | int     | primary key           |
-| firstname      | varchar | imię klienta          |
-| lastname       | varchar | nazwisko klienta      |
-| address        | varchar | adres klienta         |
-| phone          | varchar | telefon klienta       |
-| city           | varchar | miasto klienta        |
-| country        | varchar | kraj klienta          |
-| post_code      | varchar | kod pocztowy klienta  |
-| region         | varchar | region klienta        |
-| birthdate      | date    | data urodzin klienta  |
-| pesel          | int     | pesel klienta         |
-| photopath      | varchar | zdjęcie klienta       |
-| notes          | text    | notatka o kliencie    |
-| fax            | varchar | fax klienta           |
+| Nazwa atrybutu | Typ          | Opis/Uwagi            |
+|----------------|--------------|-----------------------|
+| customerid     | int          | primary key           |
+| firstname      | varchar(255) | imię klienta          |
+| lastname       | varchar(255) | nazwisko klienta      |
+| address        | varchar(255) | adres klienta         |
+| phone          | varchar(255) | telefon klienta       |
+| city           | varchar(255) | miasto klienta        |
+| country        | varchar(255) | kraj klienta          |
+| post_code      | varchar(255) | kod pocztowy klienta  |
+| region         | varchar(255) | region klienta        |
+| birthdate      | date         | data urodzin klienta  |
+| pesel          | int          | pesel klienta         |
+| photopath      | varchar(255) | zdjęcie klienta       |
+| notes          | text         | notatka o kliencie    |
+| fax            | varchar(255) | fax klienta           |
 
 reservations:
 - Opis: tabela zawierająca rezerwacje.
 
-| Nazwa atrybutu | Typ      | Opis/Uwagi        |
-|----------------|----------|-------------------|
-| reservationid  | int      | primary key       |
-| customerid     | int      | fk dla customers  |
-| start_date     | date     | data zameldowania |
-| end_date       | date     | data wymeldowania |
-| paymentid      | int      | fk dla payments   |
-| total          | decimal  | kwota do zapłaty  |
-| roomid         | int      | fk dla rooms      |
+| Nazwa atrybutu | Typ            | Opis/Uwagi        |
+|----------------|----------------|-------------------|
+| reservationid  | int            | primary key       |
+| customerid     | int            | fk dla customers  |
+| start_date     | date           | data zameldowania |
+| end_date       | date           | data wymeldowania |
+| note           | varchar(255)   | uwagi             |
+| additional     | decimal(10,2)  | cena za uwagi     |
 
 payments:
 - Opis: tabela zawierająca płatność
@@ -110,29 +109,27 @@ payments:
 | Nazwa atrybutu   | Typ      | Opis/Uwagi             |
 |------------------|----------|------------------------|
 | paymentid        | int      | primary key            |
-| total            | decimal  | kwota do zapłaty       |
-| advance          | decimal  | zaliczka               |
-| orderid          | int      | fk dla orders          |
+| advance          | bit      | zaliczka               |
+| reservationid    | int      | fk dla orders          |
+| status           | bit      | zaksięgowana płatność  |
 | payment_methodid | int      | fk dla payment_methods |
 
 rooms:
 - Opis: tabela zawierająca pokoje
 
-| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
-|------------------|----------|------------------------|
-| roomid           | int      | primary key            |
-| price            | decimal  | cena pokoju            |
-| reservationid    | int      | fk dla reservations    |
-| roomtypeid       | int      | fk dla roomtypeid      |
+| Nazwa atrybutu   | Typ          | Opis/Uwagi             |
+|------------------|--------------|------------------------|
+| roomid           | int          | primary key            |
+| roomtypeid       | int          | fk dla roomtypeid      |
+| number           | vrachar(255) | numer pokoju           |
 
 payment_methods:
 - Opis: tabela zawierająca metody płatności
 
-| Nazwa atrybutu   | Typ     | Opis/Uwagi             |
-|------------------|---------|------------------------|
-| payment_methodsid| int     | primary key            |
-| name             | varchar | nazwa płatności        |
-| paymentid        | int     | fk dla paymentid       |
+| Nazwa atrybutu   | Typ          | Opis/Uwagi             |
+|------------------|--------------|------------------------|
+| payment_methodid | int          | primary key            |
+| name             | varchar(255) | nazwa płatności        |
 
 orders:
 - Opis: tabela zawierająca zamówienia
@@ -140,9 +137,7 @@ orders:
 | Nazwa atrybutu   | Typ      | Opis/Uwagi             |
 |------------------|----------|------------------------|
 | orderid          | int      | primary key            |
-| productid        | int      | fk dla productid       |
 | orderdate        | date     | data zamówienia        |
-| total            | decimal  | kwota do zapłaty       |
 | status           | varchar  | status zamówienia      |
 | tip              | decimal  | napiwek                |
 | discount         | decimal  | zniżka                 |
@@ -152,14 +147,15 @@ orders:
 products:
 - Opis: tabela zawierająca produkty
 
-| Nazwa atrybutu   | Typ      | Opis/Uwagi                  |
-|------------------|----------|-----------------------------|
-| productid        | int      | primary key                 |
-| supplierid       | int      | fk dla supplierid           |
-| unitprice        | decimal  | cena produktu               |
-| unitsinstock     | int      | ilość produktów             |
-| utnitsinorder    | int      | ilość zamówionych produktów |
-| prouctname       | int      | nazwa produktu              |
+| Nazwa atrybutu   | Typ           | Opis/Uwagi                  |
+|------------------|---------------|-----------------------------|
+| productid        | int           | primary key                 |
+| supplierid       | int           | fk dla supplierid           |
+| unitprice        | decimal(10,2) | cena produktu               |
+| unitsinstock     | int           | ilość produktów             |
+| utnitsinorder    | int           | ilość zamówionych produktów |
+| prouctname       | int           | nazwa produktu              |
+| orderid          | int           | fk dla orderid              |
 
 suppliers:
 - Opis: tabela zawierająca dostawców
