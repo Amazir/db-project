@@ -303,51 +303,59 @@ CREATE TABLE suppliers (
 )
 ```
 
--- foreign keys
--- Reference: orders_reservations (table: orders)
+```sql
 ALTER TABLE orders ADD CONSTRAINT orders_reservations
     FOREIGN KEY (reservationid)
     REFERENCES reservations (reservationid);
+```
 
--- Reference: payments_payment_methods (table: payments)
+```sql
 ALTER TABLE payments ADD CONSTRAINT payments_payment_methods
     FOREIGN KEY (payment_methodid)
     REFERENCES payment_methods (payment_methodid);
+```
 
--- Reference: payments_reservations (table: payments)
+```sql
 ALTER TABLE payments ADD CONSTRAINT payments_reservations
     FOREIGN KEY (reservationid)
     REFERENCES reservations (reservationid);
+```
 
--- Reference: products_orders (table: products)
+```sql
 ALTER TABLE products ADD CONSTRAINT products_orders
     FOREIGN KEY (orderid)
     REFERENCES orders (orderid);
+```
 
--- Reference: products_suppliers (table: products)
+```sql
 ALTER TABLE products ADD CONSTRAINT products_suppliers
     FOREIGN KEY (supplierid)
     REFERENCES suppliers (supplierid);
+```
 
--- Reference: reservated_rooms_reservations (table: reservated_rooms)
+```sql
 ALTER TABLE reservated_rooms ADD CONSTRAINT reservated_rooms_reservations
     FOREIGN KEY (reservationid)
     REFERENCES reservations (reservationid);
+```
 
--- Reference: reservated_rooms_rooms (table: reservated_rooms)
+```sql
 ALTER TABLE reservated_rooms ADD CONSTRAINT reservated_rooms_rooms
     FOREIGN KEY (roomid)
     REFERENCES rooms (roomid);
+```
 
--- Reference: reservations_customers (table: reservations)
+```sql
 ALTER TABLE reservations ADD CONSTRAINT reservations_customers
     FOREIGN KEY (customerid)
     REFERENCES customers (customerid);
+```
 
--- Reference: rooms_room_type (table: rooms)
+```sql
 ALTER TABLE rooms ADD CONSTRAINT rooms_room_type
     FOREIGN KEY (roomtype_id)
     REFERENCES room_type (room_typeid);
+```
 
 ## Widoki
 
