@@ -1,7 +1,6 @@
 # Database for hotel
-Project for DB Systems lesson.
-It's database for hotel.
-There are tables for employees, clients, rooms, reservations, complaints and support tickets, supplies and suppliers with current magazine stock monitoring.
+Projekt z systemów baz danych na labolatoria.
+Baza danych dla hotelu, przedstawiająca implementację systemu płatności, rezerwacji pokojów oraz room-service.
 
 <!-- <style>
  p,li {
@@ -33,6 +32,9 @@ Celem projektu jest stworzenie systemu obsługi hotelowej działającego w oparc
 ## Rezerwacja pokojów
 Głównym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami oraz tworzyć nowe.
 
+## Płatność
+Nasz system umożliwiać będzie dokonanie płatności w po staci kilku części np. zaliczki oraz reszty kwoty rezerwacji (w skład której będą wchodzić dodatkowe usługi takie jak barek itd czy też ewentualne szkody). Dodatkowo klient będzie mógł zapłacić w wybrany przez siebie sposób - będzie mieć kilka rodzajów płatności (np karta, gotówka).Dla jego wygody każdą część wpłaty będzie mógł dokonać innym sposobem - zaliczkę kartą, a resztę np w hotelu gotówką.
+
 ## Obsługa klientów
 Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów.
 
@@ -41,14 +43,13 @@ Ostatnim, ale równie istotnym elementem systemu będzie możliwość monitorowa
 W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie swoimi zasobami.
 
 ## Usługi gastronomiczne
-Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wysoką jakość posiłków i napojów, które spełnią oczekiwania nawet najbardziej wymagających gości.
+Hotel będzie oferował usługi gastronomicznych takie jak room-service, zapewniając wysoką jakość posiłków i napojów, które spełnią oczekiwania nawet najbardziej wymagających gości.
 
 # 2.	Wymagania i funkcje systemu
 
-
 ## Rezerwacja pokojów:
 - System umożliwia przeglądanie dostępnych pokoi w określonym terminie.
-- Klienci mogą dokonywać rezerwacji online, wybierając preferowane pokoje i okresy pobytu.
+- Klienci mogą dokonywać rezerwacji online, wybierając preferowane pokoje (rodzaje) i okresy pobytu.
 - Personel może dodawać, edytować i anulować rezerwacje, zarządzając dostępnością pokoi.
 
 ## Obsługa klientów:
@@ -56,18 +57,23 @@ Hotel będzie oferował szeroki zakres usług gastronomicznych, zapewniając wys
 - Udzielanie informacji na temat usług i udogodnień dostępnych w hotelu.
 
 ## Monitorowanie dostępności zasobów:
-- System monitoruje dostępność pokoi, sal konferencyjnych i usług dodatkowych.
+- System monitoruje dostępność pokoi i usług dodatkowych.
 - Automatyczne aktualizowanie dostępności na podstawie dokonanych rezerwacji i zmian w stanie zasobów.
 
 ## Usługi gastronomiczne
 - Usługa room service: Hotel będzie świadczył usługę room service, umożliwiając gościom zamawianie posiłków i napojów bezpośrednio do swojego pokoju.
+
+## System płatności
+- System umożliwia kilka rodzajów płatności
+- Klienci będą mogli opłacić należną kwotę w kilku częściach (choćby zaliczka i reszta kwoty)
+- Każda płatność może być wykonana innym sposobem płatności
 
 # 3.	Projekt bazy danych
 
 ## Schemat bazy danych
 
 (diagram (rysunek) przedstawiający schemat bazy danych)
-[<img src="https://github.com/PoteznySquad/db-project/blob/main/schema.png">]
+[<img src="https://github.com/PoteznySquad/db-project/blob/main/db_diagram.png">]
 
 ## Opis poszczególnych tabel
 
