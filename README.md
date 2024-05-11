@@ -153,28 +153,38 @@ products:
 | supplierid       | int           | fk dla supplierid           |
 | unitprice        | decimal(10,2) | cena produktu               |
 | unitsinstock     | int           | ilość produktów             |
-| utnitsinorder    | int           | ilość zamówionych produktów |
+| unitsinorder     | int           | ilość zamówionych produktów |
 | prouctname       | int           | nazwa produktu              |
 | orderid          | int           | fk dla orderid              |
 
 suppliers:
 - Opis: tabela zawierająca dostawców
 
-| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
-|------------------|----------|------------------------|
-| supplierid       | int      | primary key            |
-| companyname      | varchar  | nazwa firmy            |
+| Nazwa atrybutu   | Typ          | Opis/Uwagi             |
+|------------------|--------------|------------------------|
+| supplierid       | int          | primary key            |
+| companyname      | varchar(255) | nazwa firmy            |
 
 room_type
 - Opis: tabela zawierająca typy pokojów
 
-| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
-|------------------|----------|------------------------|
-| room_typid       | int      | primary key            |
-| beds             | int      | ilość łóżek w pokoju   |
-| persons          | int      | ilość osób na pokój    |
-| description      | varchar  | opis pokoju            |
+| Nazwa atrybutu   | Typ           | Opis/Uwagi             |
+|------------------|---------------|------------------------|
+| room_typid       | int           | primary key            |
+| beds             | int           | ilość łóżek w pokoju   |
+| persons          | int           | ilość osób na pokój    |
+| description      | varchar(255)  | opis pokoju            |
+| price            | decimal(10,2) | cena pokoju            |
 
+reservated_rooms
+- Opis: tabela łącznikowa między rezerwacjami i pokojami
+
+| Nazwa atrybutu     | Typ           | Opis/Uwagi             |
+|--------------------|---------------|------------------------|
+| reservated_roomid  | int           | primary key            |
+| roomid             | int           | fk dla roomid          |
+| reservationid      | int           | fk dla reservationid   |
+| price              | decimal(10,2) | cena rezerwacji        |
 
 
 # 4.	Implementacja
