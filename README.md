@@ -120,8 +120,8 @@ rooms:
 | Nazwa atrybutu   | Typ          | Opis/Uwagi             |
 |------------------|--------------|------------------------|
 | roomid           | int          | primary key            |
-| roomtypeid       | int          | fk dla roomtypeid      |
-| number           | vrachar(255) | numer pokoju           |
+| room_typeid      | int          | fk dla roomtypeid      |
+| number           | varchar(255) | numer pokoju           |
 
 payment_methods:
 - Opis: tabela zawierająca metody płatności
@@ -134,14 +134,14 @@ payment_methods:
 orders:
 - Opis: tabela zawierająca zamówienia
 
-| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
-|------------------|----------|------------------------|
-| orderid          | int      | primary key            |
-| orderdate        | date     | data zamówienia        |
-| status           | varchar  | status zamówienia      |
-| tip              | decimal  | napiwek                |
-| discount         | decimal  | zniżka                 |
-| reservationid    | int      | fk dla reservations    |
+| Nazwa atrybutu   | Typ            | Opis/Uwagi             |
+|------------------|----------------|------------------------|
+| orderid          | int            | primary key            |
+| orderdate        | date           | data zamówienia        |
+| status           | varchar(255)   | status zamówienia      |
+| tip              | decimal(10,2)  | napiwek                |
+| discount         | decimal(10,2)  | zniżka                 |
+| reservationid    | int            | fk dla reservations    |
 
 
 products:
@@ -209,6 +209,91 @@ create table customers (
    photopath varchar(255),
    notes text,
    fax varchar(255)
+)
+```
+
+```sql
+create table reservations (
+   reservationid int,
+   customerid int,
+   start_date date,
+   end_date date,
+   note varchar(255),
+   additional decimal(10,2)
+)
+```
+
+```sql
+create table payments (
+   paymentid int,
+   advance bit,
+   reservationid int,
+   status bit,
+   payment_methodid int
+)
+```
+
+```sql
+create table rooms (
+   roomid int,
+   room_typid int,
+   number varchar(255)
+)
+```
+
+```sql
+create table payment_methods (
+   payment_methodid int,
+   name varchar(255)
+)
+```
+
+```sql
+create table orders (
+   orderid int,
+   orderdate date,
+   status varchar(255),
+   tip decimal,
+   discount decimal,
+   reservationid int
+)
+```
+
+```sql
+create table products (
+   productid int,
+   supplierid int,
+   unitprice decimal(10,2),
+   unitsinstock int,
+   unitsinorder int,
+   productname int,
+   orderid int
+)
+```
+
+```sql
+create table suppliers (
+   supplierid int,
+   companyname varchar(255)
+)
+```
+
+```sql
+create table room_type (
+   room_typid int,
+   beds int,
+   persons int,
+   description varchar(255),
+   price decimal(10,2)
+)
+```
+
+```sql
+create table reservated_rooms (
+   reservated_roomid int,
+   roomid int,
+   reservationid int,
+   price decimal(10,2)
 )
 ```
 
