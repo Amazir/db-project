@@ -194,9 +194,21 @@ reservated_rooms
 (dla każdej tabeli należy wkleić kod DDL polecenia tworzącego tabelę)
 
 ```sql
-create table tab1 (
-   a int,
-   b varchar(10)
+create table customers (
+   customerid int,
+   firstname varchar(255),
+   lastname varchar(255),
+   address varchar(255),
+   phone varchar(255),
+   city varchar(255),
+   country varchar(255),
+   post_code varchar(255),
+   region varchar(255),
+   birthdate date,
+   pesel int,
+   photopath varchar(255),
+   notes text,
+   fax varchar(255)
 )
 ```
 
