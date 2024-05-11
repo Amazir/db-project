@@ -72,8 +72,7 @@ Hotel będzie oferował usługi gastronomicznych takie jak room-service, zapewni
 
 ## Schemat bazy danych
 
-(diagram (rysunek) przedstawiający schemat bazy danych)
-[<img src="https://github.com/PoteznySquad/db-project/blob/main/db_diagram.png">]
+<img src="https://github.com/PoteznySquad/db-project/blob/main/db_diagram.png">
 
 ## Opis poszczególnych tabel
 
