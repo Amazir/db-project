@@ -103,7 +103,7 @@ orders:
 |------------------|----------------|------------------------|
 | orderid          | int            | primary key            |
 | orderdate        | date           | data zamówienia        |
-| status           | varchar(255)   | status zamówienia      |
+| status           | bit            | status zamówienia      |
 | tip              | decimal(10,2)  | napiwek                |
 | discount         | decimal(10,2)  | zniżka                 |
 | reservationid    | int            | fk dla reservations    |
@@ -119,13 +119,14 @@ payment_methods:
 payments:
 - Opis: tabela zawierająca płatność
 
-| Nazwa atrybutu   | Typ      | Opis/Uwagi             |
-|------------------|----------|------------------------|
-| paymentid        | int      | primary key            |
-| advance          | bit      | zaliczka               |
-| reservationid    | int      | fk dla orders          |
-| status           | bit      | zaksięgowana płatność  |
-| payment_methodid | int      | fk dla payment_methods |
+| Nazwa atrybutu   | Typ           | Opis/Uwagi             |
+|------------------|---------------|------------------------|
+| paymentid        | int           | primary key            |
+| advance          | bit           | zaliczka               |
+| reservationid    | int           | fk dla orders          |
+| payment_methodid | int           | fk dla payment_methods |
+| payment_date     | date          | data wpłaty            |
+| value            | decimal(10,2) | wartość płatności      |
 
 products:
 - Opis: tabela zawierająca produkty
@@ -133,12 +134,10 @@ products:
 | Nazwa atrybutu   | Typ           | Opis/Uwagi                  |
 |------------------|---------------|-----------------------------|
 | productid        | int           | primary key                 |
-| supplierid       | int           | fk dla supplierid           |
 | unitprice        | decimal(10,2) | cena produktu               |
 | unitsinstock     | int           | ilość produktów             |
 | unitsinorder     | int           | ilość zamówionych produktów |
-| prouctname       | int           | nazwa produktu              |
-| orderid          | int           | fk dla orderid              |
+| prouctname       | varchar(255)  | nazwa produktu              |
 
 reservated_rooms
 - Opis: tabela łącznikowa między rezerwacjami i pokojami
@@ -182,13 +181,14 @@ rooms:
 | room_typeid      | int          | fk dla roomtypeid      |
 | number           | varchar(255) | numer pokoju           |
 
-suppliers:
-- Opis: tabela zawierająca dostawców
+processed_orders:
+- Opis: tabela łącznikowa między zamówieniami i produktami
 
-| Nazwa atrybutu   | Typ          | Opis/Uwagi             |
-|------------------|--------------|------------------------|
-| supplierid       | int          | primary key            |
-| companyname      | varchar(255) | nazwa firmy            |
+| Nazwa atrybutu    | Typ          | Opis/Uwagi             |
+|-------------------|--------------|------------------------|
+| processed_orderid | int          | primary key            |
+| orderis           | int          | fk dla orderid         |
+| productid         | int          | fk dla productid       |
 
 # 4.	Implementacja
 
