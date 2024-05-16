@@ -204,14 +204,14 @@ CREATE TABLE customers (
     city varchar(255)  NOT NULL,
     country varchar(255)  NOT NULL,
     post_code varchar(255)  NOT NULL,
-    region varchar(255),
+    region varchar(255)  NULL,
     birthdate date  NOT NULL,
     pesel int  NOT NULL,
-    photopath varchar(255),
-    notes text,
-    fax varchar(255),
+    photopath varchar(255)  NULL,
+    notes text  NULL,
+    fax varchar(255)  NULL,
     CONSTRAINT customers_pk PRIMARY KEY  (customerid)
-)
+);
 ```
 
 ```sql
@@ -223,7 +223,7 @@ CREATE TABLE orders (
     discount decimal(10,2)  NOT NULL,
     reservationid int  NOT NULL,
     CONSTRAINT orders_pk PRIMARY KEY  (orderid)
-)
+);
 ```
 
 ```sql
@@ -231,7 +231,7 @@ CREATE TABLE payment_methods (
     payment_methodid int  NOT NULL,
     name varchar(255)  NOT NULL,
     CONSTRAINT payment_methodid PRIMARY KEY  (payment_methodid)
-)
+);
 ```
 
 ```sql
@@ -239,23 +239,31 @@ CREATE TABLE payments (
     paymentid int  NOT NULL,
     advance bit  NOT NULL,
     reservationid int  NOT NULL,
-    status bit  NOT NULL,
     payment_methodid int  NOT NULL,
+    payment_date date  NOT NULL,
+    value decimal(10,2)  NOT NULL,
     CONSTRAINT payments_pk PRIMARY KEY  (paymentid)
-)
+);
+```
+
+```sql
+CREATE TABLE processed_orders (
+    processed_orderid int  NOT NULL,
+    orderid int  NOT NULL,
+    productid int  NOT NULL,
+    CONSTRAINT processed_orders_pk PRIMARY KEY  (processed_orderid)
+);
 ```
 
 ```sql
 CREATE TABLE products (
     productid int  NOT NULL,
-    supplierid int  NOT NULL,
     unitprice decimal(10,2)  NOT NULL,
     unitsinstock int  NOT NULL,
     unitsinorder int  NOT NULL,
-    productname int  NOT NULL,
-    orderid int  NOT NULL,
+    productname varchar(255)  NOT NULL,
     CONSTRAINT products_pk PRIMARY KEY  (productid)
-)
+);
 ```
 
 ```sql
@@ -265,7 +273,7 @@ CREATE TABLE reservated_rooms (
     reservationid int  NOT NULL,
     price decimal(10,2)  NOT NULL,
     CONSTRAINT reservated_rooms_pk PRIMARY KEY  (reservated_roomid)
-)
+);
 ```
 
 ```sql
@@ -274,10 +282,10 @@ CREATE TABLE reservations (
     customerid int  NOT NULL,
     start_date date  NOT NULL,
     end_date date  NOT NULL,
-    note varchar(255),
+    note varchar(255)  NULL,
     additional decimal(10,2)  NOT NULL,
     CONSTRAINT reservations_pk PRIMARY KEY  (reservationid)
-)
+);
 ```
 
 ```sql
@@ -285,27 +293,19 @@ CREATE TABLE room_type (
     room_typeid int  NOT NULL,
     beds int  NOT NULL,
     persons int  NOT NULL,
-    description varchar(255),
+    description varchar(255)  NULL,
     price decimal(10,2)  NOT NULL,
     CONSTRAINT room_type_pk PRIMARY KEY  (room_typeid)
-)
+);
 ```
 
 ```sql
 CREATE TABLE rooms (
     roomid int  NOT NULL,
-    roomtype_id int  NOT NULL,
+    room_typeid int  NOT NULL,
     number varchar(255)  NOT NULL,
     CONSTRAINT rooms_pk PRIMARY KEY  (roomid)
-)
-```
-
-```sql
-CREATE TABLE suppliers (
-    supplierid int  NOT NULL,
-    companyname varchar(255)  NOT NULL,
-    CONSTRAINT suppliers_pk PRIMARY KEY  (supplierid)
-)
+);
 ```
 
 ```sql
@@ -327,15 +327,15 @@ ALTER TABLE payments ADD CONSTRAINT payments_reservations
 ```
 
 ```sql
-ALTER TABLE products ADD CONSTRAINT products_orders
+ALTER TABLE processed_orders ADD CONSTRAINT processed_orders_orders
     FOREIGN KEY (orderid)
     REFERENCES orders (orderid);
 ```
 
 ```sql
-ALTER TABLE products ADD CONSTRAINT products_suppliers
-    FOREIGN KEY (supplierid)
-    REFERENCES suppliers (supplierid);
+ALTER TABLE processed_orders ADD CONSTRAINT processed_orders_products
+    FOREIGN KEY (productid)
+    REFERENCES products (productid);
 ```
 
 ```sql
@@ -358,7 +358,7 @@ ALTER TABLE reservations ADD CONSTRAINT reservations_customers
 
 ```sql
 ALTER TABLE rooms ADD CONSTRAINT rooms_room_type
-    FOREIGN KEY (roomtype_id)
+    FOREIGN KEY (room_typeid)
     REFERENCES room_type (room_typeid);
 ```
 
