@@ -204,12 +204,12 @@ CREATE TABLE customers (
     city varchar(255)  NOT NULL,
     country varchar(255)  NOT NULL,
     post_code varchar(255)  NOT NULL,
-    region varchar(255)  NOT NULL,
+    region varchar(255),
     birthdate date  NOT NULL,
     pesel int  NOT NULL,
-    photopath varchar(255)  NOT NULL,
-    notes text  NOT NULL,
-    fax varchar(255)  NOT NULL,
+    photopath varchar(255),
+    notes text,
+    fax varchar(255),
     CONSTRAINT customers_pk PRIMARY KEY  (customerid)
 )
 ```
@@ -274,7 +274,7 @@ CREATE TABLE reservations (
     customerid int  NOT NULL,
     start_date date  NOT NULL,
     end_date date  NOT NULL,
-    note varchar(255)  NOT NULL,
+    note varchar(255),
     additional decimal(10,2)  NOT NULL,
     CONSTRAINT reservations_pk PRIMARY KEY  (reservationid)
 )
@@ -285,7 +285,7 @@ CREATE TABLE room_type (
     room_typeid int  NOT NULL,
     beds int  NOT NULL,
     persons int  NOT NULL,
-    description varchar(255)  NOT NULL,
+    description varchar(255),
     price decimal(10,2)  NOT NULL,
     CONSTRAINT room_type_pk PRIMARY KEY  (room_typeid)
 )
