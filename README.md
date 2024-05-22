@@ -368,7 +368,7 @@ ALTER TABLE rooms ADD CONSTRAINT rooms_room_type
 
 1. customer_reservation wypisuje liste klientów i zarezerwowane przez nich pokoje
 
-'''sql
+```sql
 CREATE VIEW customer_reservations AS
 SELECT 
     c.customerid,
@@ -385,11 +385,11 @@ FROM
     customers c
 JOIN 
     reservations r ON c.customerid = r.customerid;
-'''
+```
 
 2. order_details wypisuje szczegółowe dane odnośnie zamówionych posiłków i napoji
 
-'''sql
+```sql
 CREATE VIEW order_details AS
 SELECT 
     o.orderid,
@@ -406,11 +406,11 @@ JOIN
     processed_orders po ON o.orderid = po.orderid
 JOIN 
     products p ON po.productid = p.productid;
-'''
+```
 
 3. payment_summary wypisuje informacje o dokonanych płatnościach przez klientów
 
-'''sql
+```sql
 CREATE VIEW payment_summary AS
 SELECT 
     p.paymentid,
@@ -429,11 +429,11 @@ JOIN
     customers c ON r.customerid = c.customerid
 JOIN 
     payment_methods pm ON p.payment_methodid = pm.payment_methodid;
-'''
+```
 
 4. customers_with_additional_charges wypisuje dane o klientach którzy muszą zapłacić dodatkowo za usterki
 
-'''sql
+```sql
 CREATE VIEW customers_with_additional_charges AS
 SELECT 
     c.customerid,
@@ -453,7 +453,7 @@ JOIN
     reservations r ON c.customerid = r.customerid
 WHERE 
     r.additional > 0;
-'''
+```
 
 ## Procedury/funkcje
 
