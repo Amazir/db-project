@@ -203,7 +203,7 @@ CREATE TABLE customers (
     phone varchar(255)  NOT NULL,
     city varchar(255)  NOT NULL,
     country varchar(255)  NOT NULL,
-    post_code varchar(255)  NOT NULL,
+    post_code varchar(255)  NULL,
     region varchar(255)  NULL,
     birthdate date  NOT NULL,
     pesel int  NOT NULL,
