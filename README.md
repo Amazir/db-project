@@ -453,23 +453,6 @@ WHERE
     r.additional > 0;
 ```
 
-5. rentals_number_of_rooms pokazuje ile razy każdy z pokoi został wynajęty
-
-```sql
-CREATE VIEW rentals_number_of_rooms AS
-SELECT 
-    r.roomid,
-    ro.number AS room_number,
-    COUNT(*) AS times_rented
-FROM 
-    reservated_rooms r
-JOIN 
-    rooms ro ON r.roomid = ro.roomid
-GROUP BY 
-    r.roomid, ro.number
-ORDER BY 
-    times_rented DESC
-```
 
 ## Procedury/funkcje
 
