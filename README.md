@@ -364,8 +364,6 @@ ALTER TABLE rooms ADD CONSTRAINT rooms_room_type
 
 ## Widoki
 
-(dla każdego widoku należy wkleić kod polecenia definiującego widok wraz z komentarzem)
-
 1. customer_reservation wypisuje liste klientów i zarezerwowane przez nich pokoje
 
 ```sql
