@@ -220,7 +220,7 @@ CREATE TABLE orders (
     orderdate date  NOT NULL,
     status bit  NOT NULL,
     tip decimal(10,2)  NOT NULL,
-    discount decimal(10,2)  NOT NULL,
+    discount decimal(10,2) NULL,
     reservationid int  NOT NULL,
     CONSTRAINT orders_pk PRIMARY KEY  (orderid)
 );
