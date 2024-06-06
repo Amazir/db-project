@@ -91,7 +91,7 @@ customers:
 | post_code      | varchar(255) | kod pocztowy klienta  |
 | region         | varchar(255) | region klienta        |
 | birthdate      | date         | data urodzin klienta  |
-| pesel          | bigint          | pesel klienta         |
+| pesel          | bigint       | pesel klienta         |
 | photopath      | varchar(255) | zdjęcie klienta       |
 | notes          | text         | notatka o kliencie    |
 | fax            | varchar(255) | fax klienta           |
