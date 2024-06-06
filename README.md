@@ -456,7 +456,27 @@ WHERE
 
 ## Procedury/funkcje
 
-(dla każdej procedury/funkcji należy wkleić kod polecenia definiującego procedurę wraz z komentarzem)
+1. Procedura dodawania nowego pokoju do tabeli rooms.
+
+```
+
+CREATE PROCEDURE add_room
+    @room_typeid INT,
+    @number VARCHAR(255)
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM room_type WHERE room_typeid = @room_typeid)
+    BEGIN
+        INSERT INTO rooms (room_typeid, number)
+        VALUES (@room_typeid, @number);
+    END
+    ELSE
+    BEGIN
+        RAISERROR('nie ma takiego typu pokoju: %d', 16, 1, @room_typeid);
+    END
+END;
+
+```
 
 ## Triggery
 
