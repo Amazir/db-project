@@ -458,8 +458,7 @@ WHERE
 
 1. Procedura dodawania nowego pokoju do tabeli rooms.
 
-```
-
+```sql
 CREATE PROCEDURE add_room
     @room_typeid INT,
     @number VARCHAR(255)
@@ -475,7 +474,6 @@ BEGIN
         RAISERROR('nie ma takiego typu pokoju: %d', 16, 1, @room_typeid);
     END
 END;
-
 ```
 
 ## Triggery
