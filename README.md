@@ -475,6 +475,33 @@ BEGIN
     END
 END;
 ```
+1. Procedura dodawania nowego klienta do tabeli customers.
+
+```sql
+CREATE PROCEDURE add_customer
+@customerid int,
+@firstname varchar(255),
+@lastname varchar(255),
+@address varchar(255),
+@phone varchar(255),
+@city varchar(255),
+@country varchar(255),
+@post_code varchar(255),
+@region varchar(255),
+@birthdate date,
+@pesel varchar(255),
+@photopath varchar(255),
+@notes text,
+@fax varchar(255)
+as
+begin
+    if not exists (select * from customers where customerid = @customerid)
+       throw 50001, 'No customer with such id', 1
+
+    insert customers(customerid,firstname,lastname,address,phone,city,country,post_code,region,birthdate,pesel,photopath,notes,fax)
+    values(@customerid,@firstname,@lastname,@address,@phone,@city,@country,@post_code,@region,@birthdate,@pesel,@photopath,@notes,@fax)
+end
+```
 
 ## Triggery
 
