@@ -197,7 +197,7 @@ processed_orders:
 
 ```sql
 CREATE TABLE customers (
-    customerid int  NOT NULL,
+    customerid int  NOT NULL IDENTITY,
     firstname varchar(255)  NOT NULL,
     lastname varchar(255)  NOT NULL,
     address varchar(255)  NOT NULL,
@@ -218,7 +218,7 @@ CREATE TABLE customers (
 ```sql
 CREATE TABLE orders (
     orderid int  NOT NULL,
-    orderdate date  NOT NULL,
+    orderdate date  NOT NULL IDENTITY,
     status bit  NOT NULL,
     tip decimal(10,2)  NOT NULL,
     discount decimal(10,2) NULL,
@@ -229,7 +229,7 @@ CREATE TABLE orders (
 
 ```sql
 CREATE TABLE payment_methods (
-    payment_methodid int  NOT NULL,
+    payment_methodid int  NOT NULL IDENTITY,
     name varchar(255)  NOT NULL,
     CONSTRAINT payment_methodid PRIMARY KEY  (payment_methodid)
 );
@@ -237,7 +237,7 @@ CREATE TABLE payment_methods (
 
 ```sql
 CREATE TABLE payments (
-    paymentid int  NOT NULL,
+    paymentid int  NOT NULL IDENTITY,
     advance bit  NOT NULL,
     reservationid int  NOT NULL,
     payment_methodid int  NOT NULL,
@@ -249,7 +249,7 @@ CREATE TABLE payments (
 
 ```sql
 CREATE TABLE processed_orders (
-    processed_orderid int  NOT NULL,
+    processed_orderid int  NOT NULL IDENTITY,
     orderid int  NOT NULL,
     productid int  NOT NULL,
     price decimal(10,2) NOT NULL,
@@ -259,7 +259,7 @@ CREATE TABLE processed_orders (
 
 ```sql
 CREATE TABLE products (
-    productid int  NOT NULL,
+    productid int  NOT NULL IDENTITY,
     unitprice decimal(10,2)  NOT NULL,
     unitsinstock int  NOT NULL,
     unitsinorder int  NOT NULL,
@@ -270,7 +270,7 @@ CREATE TABLE products (
 
 ```sql
 CREATE TABLE reservated_rooms (
-    reservated_roomid int  NOT NULL,
+    reservated_roomid int  NOT NULL IDENTITY,
     roomid int  NOT NULL,
     reservationid int  NOT NULL,
     price decimal(10,2)  NOT NULL,
@@ -280,7 +280,7 @@ CREATE TABLE reservated_rooms (
 
 ```sql
 CREATE TABLE reservations (
-    reservationid int  NOT NULL,
+    reservationid int  NOT NULL IDENTITY,
     customerid int  NOT NULL,
     start_date date  NOT NULL,
     end_date date  NOT NULL,
@@ -292,7 +292,7 @@ CREATE TABLE reservations (
 
 ```sql
 CREATE TABLE room_type (
-    room_typeid int  NOT NULL,
+    room_typeid int  NOT NULL IDENTITY,
     beds int  NOT NULL,
     persons int  NOT NULL,
     description varchar(255)  NULL,
@@ -303,7 +303,7 @@ CREATE TABLE room_type (
 
 ```sql
 CREATE TABLE rooms (
-    roomid int  NOT NULL,
+    roomid int  NOT NULL IDENTITY,
     room_typeid int  NOT NULL,
     number varchar(255)  NOT NULL,
     CONSTRAINT rooms_pk PRIMARY KEY  (roomid)
