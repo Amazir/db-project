@@ -184,11 +184,12 @@ rooms:
 processed_orders:
 - Opis: tabela łącznikowa między zamówieniami i produktami
 
-| Nazwa atrybutu    | Typ          | Opis/Uwagi             |
-|-------------------|--------------|------------------------|
-| processed_orderid | int          | primary key            |
-| orderis           | int          | fk dla orderid         |
-| productid         | int          | fk dla productid       |
+| Nazwa atrybutu    | Typ           | Opis/Uwagi             |
+|-------------------|---------------|------------------------|
+| processed_orderid | int           | primary key            |
+| orderis           | int           | fk dla orderid         |
+| productid         | int           | fk dla productid       |
+| price             | decimal(10,2) | cena za produkt        |
 
 # 4.	Implementacja
 
@@ -251,6 +252,7 @@ CREATE TABLE processed_orders (
     processed_orderid int  NOT NULL,
     orderid int  NOT NULL,
     productid int  NOT NULL,
+    price decimal(10,2) NOT NULL,
     CONSTRAINT processed_orders_pk PRIMARY KEY  (processed_orderid)
 );
 ```
