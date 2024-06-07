@@ -481,7 +481,6 @@ END;
 
 ```sql
 CREATE PROCEDURE add_customer
-@customerid int,
 @firstname varchar(255),
 @lastname varchar(255),
 @address varchar(255),
@@ -491,18 +490,22 @@ CREATE PROCEDURE add_customer
 @post_code varchar(255),
 @region varchar(255),
 @birthdate date,
-@pesel varchar(255),
+@pesel varchar(11),
 @photopath varchar(255),
 @notes text,
 @fax varchar(255)
 as
 begin
-    if not exists (select * from customers where customerid = @customerid)
-       throw 50001, 'No customer with such id', 1
+    IF LEN(@pesel) <> 11
+    BEGIN
+        RAISERROR('PESEL musi miec 11 cyfr.', 16, 1)
+        RETURN
+    END
 
-    insert customers(customerid,firstname,lastname,address,phone,city,country,post_code,region,birthdate,pesel,photopath,notes,fax)
-    values(@customerid,@firstname,@lastname,@address,@phone,@city,@country,@post_code,@region,@birthdate,@pesel,@photopath,@notes,@fax)
+    insert customers(firstname,lastname,address,phone,city,country,post_code,region,birthdate,pesel,photopath,notes,fax)
+    values(@firstname,@lastname,@address,@phone,@city,@country,@post_code,@region,@birthdate,@pesel,@photopath,@notes,@fax)
 end
+go
 ```
 
 ## Triggery
