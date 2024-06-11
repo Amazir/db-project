@@ -33,35 +33,38 @@ Celem projektu jest stworzenie systemu obsługi hotelowej działającego w oparc
 Głównym elementem systemu jest moduł rezerwacji pokojów, który umożliwia zarówno klientom jak i personelowi dokonywanie i zarządzanie rezerwacjami. Klienci będą mieli możliwość przeglądania dostępnych pokoi, sprawdzania ich dostępności w określonym terminie oraz dokonywania rezerwacji online. Personel będzie mógł zarządzać istniejącymi rezerwacjami oraz tworzyć nowe.
 
 ## Płatność
-Nasz system umożliwiać będzie dokonanie płatności w po staci kilku części np. zaliczki oraz reszty kwoty rezerwacji (w skład której będą wchodzić dodatkowe usługi takie jak barek itd czy też ewentualne szkody). Dodatkowo klient będzie mógł zapłacić w wybrany przez siebie sposób - będzie mieć kilka rodzajów płatności (np karta, gotówka).Dla jego wygody każdą część wpłaty będzie mógł dokonać innym sposobem - zaliczkę kartą, a resztę np w hotelu gotówką.
+Nasz system umożliwiać będzie dokonanie płatności w postaci kilku części np. zaliczki oraz reszty kwoty rezerwacji (w skład której będą wchodzić dodatkowe usługi takie jak barek itd czy też ewentualne szkody). Dodatkowo klient będzie mógł zapłacić w wybrany przez siebie sposób - będzie mieć kilka rodzajów płatności (np karta, gotówka). Dla jego wygody każdą część wpłaty będzie mógł dokonać innym sposobem - zaliczkę kartą, a resztę np w hotelu gotówką.
 
 ## Obsługa klientów
-Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów.
+Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień oraz wypisywanie wyjeżdżających gości. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów.
 
 ## Monitorowanie dostępności zasobów
 Ostatnim, ale równie istotnym elementem systemu będzie możliwość monitorowania dostępności zasobów hotelowych, takich jak pokoje czy usługi dodatkowe. Dzięki temu hotel będzie mógł efektywnie zarządzać swoimi zasobami, unikając sytuacji, w której występuje niedobór lub nadmiar danego zasobu.
 W rezultacie, stworzenie tego systemu pozwoli hotelowi na efektywne zarządzanie swoimi zasobami.
 
 ## Usługi gastronomiczne
-Hotel będzie oferował usługi gastronomicznych takie jak room-service, zapewniając wysoką jakość posiłków i napojów, które spełnią oczekiwania nawet najbardziej wymagających gości.
+Hotel będzie oferował usługi gastronomiczne takie jak room-service, zapewniając wysoką jakość posiłków i napojów, które spełnią oczekiwania nawet najbardziej wymagających gości. Dodatkowo pracownicy hotelu będą mieli możliwość usuwania oraz dodawania nowych produktów. 
 
 # 2.	Wymagania i funkcje systemu
 
 ## Rezerwacja pokojów:
 - System umożliwia przeglądanie dostępnych pokoi w określonym terminie.
 - Klienci mogą dokonywać rezerwacji online, wybierając preferowane pokoje (rodzaje) i okresy pobytu.
-- Personel może dodawać, edytować i anulować rezerwacje, zarządzając dostępnością pokoi.
+- Personel może dodawać i anulować rezerwacje, zarządzając dostępnością pokoi.
 
 ## Obsługa klientów:
 - Rejestracja przybywających gości i przypisywanie im pokoi.
 - Udzielanie informacji na temat usług i udogodnień dostępnych w hotelu.
+- Wypisywanie wyjeżdżających gości
 
 ## Monitorowanie dostępności zasobów:
-- System monitoruje dostępność pokoi i usług dodatkowych.
+- System monitoruje dostępność pokoi.
+- Jest możliwość dodawania oraz usuwania konkretnych pokoi
 - Automatyczne aktualizowanie dostępności na podstawie dokonanych rezerwacji i zmian w stanie zasobów.
 
 ## Usługi gastronomiczne
 - Usługa room service: Hotel będzie świadczył usługę room service, umożliwiając gościom zamawianie posiłków i napojów bezpośrednio do swojego pokoju.
+- Dodawanie nowych i usuwanie produktów
 
 ## System płatności
 - System umożliwia kilka rodzajów płatności
