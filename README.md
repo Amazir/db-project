@@ -36,7 +36,7 @@ Głównym elementem systemu jest moduł rezerwacji pokojów, który umożliwia z
 Nasz system umożliwiać będzie dokonanie płatności w postaci kilku części np. zaliczki oraz reszty kwoty rezerwacji (w skład której będą wchodzić dodatkowe usługi takie jak barek itd czy też ewentualne szkody). Dodatkowo klient będzie mógł zapłacić w wybrany przez siebie sposób - będzie mieć kilka rodzajów płatności (np karta, gotówka). Dla jego wygody każdą część wpłaty będzie mógł dokonać innym sposobem - zaliczkę kartą, a resztę np w hotelu gotówką.
 
 ## Obsługa klientów
-Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień oraz wypisywanie wyjeżdżających gości. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów.
+Kolejnym ważnym elementem systemu będzie obsługa klientów. Będzie ona obejmować zarówno rejestrację przybywających gości, udzielanie informacji na temat dostępnych usług i udogodnień. Dzięki temu, hotel będzie mógł zapewnić wysoki standard obsługi, co wpłynie na zadowolenie klientów.
 
 ## Monitorowanie dostępności zasobów
 Ostatnim, ale równie istotnym elementem systemu będzie możliwość monitorowania dostępności zasobów hotelowych, takich jak pokoje czy usługi dodatkowe. Dzięki temu hotel będzie mógł efektywnie zarządzać swoimi zasobami, unikając sytuacji, w której występuje niedobór lub nadmiar danego zasobu.
@@ -55,7 +55,6 @@ Hotel będzie oferował usługi gastronomiczne takie jak room-service, zapewniaj
 ## Obsługa klientów:
 - Rejestracja przybywających gości i przypisywanie im pokoi.
 - Udzielanie informacji na temat usług i udogodnień dostępnych w hotelu.
-- Wypisywanie wyjeżdżających gości
 
 ## Monitorowanie dostępności zasobów:
 - System monitoruje dostępność pokoi.
