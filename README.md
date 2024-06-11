@@ -474,26 +474,27 @@ WHERE rr.roomid IS NULL;
 1. Procedura dodawania nowego pokoju do tabeli rooms.
 
 ```sql
-CREATE PROCEDURE add_room
-    @room_typeid INT,
-    @number VARCHAR(255)
-AS
-BEGIN
-    IF EXISTS (SELECT 1 FROM room_type WHERE room_typeid = @room_typeid)
-    BEGIN
-        INSERT INTO rooms (room_typeid, number)
-        VALUES (@room_typeid, @number);
-    END
-    ELSE
-    BEGIN
-        RAISERROR('nie ma takiego typu pokoju: %d', 16, 1, @room_typeid);
-    END
-END;
+CREATE procedure add_room
+    @room_typeid int,
+    @number varchar(255)
+as
+begin
+    if exists (select 1 from room_type where room_typeid = @room_typeid)
+        begin
+            insert into rooms (room_typeid, number)
+            values (@room_typeid, @number);
+        end
+    else
+        begin
+            RAISERROR('nie ma takiego typu pokoju: %d', 16, 1, @room_typeid);
+        end
+end;
+go
 ```
 2. Procedura dodawania nowego klienta do tabeli customers.
 
 ```sql
-CREATE PROCEDURE add_customer
+create procedure add_customer
 @firstname varchar(255),
 @lastname varchar(255),
 @address varchar(255),
@@ -509,19 +510,78 @@ CREATE PROCEDURE add_customer
 @fax varchar(255)
 as
 begin
-    IF LEN(@pesel) <> 11
-    BEGIN
-        RAISERROR('PESEL musi miec 11 cyfr.', 16, 1)
-        RETURN
-    END
+    if LEN(@pesel) <> 11
+        begin
+            RAISERROR('PESEL musi miec 11 cyfr.', 16, 1)
+            return
+        end
 
     insert customers(firstname,lastname,address,phone,city,country,post_code,region,birthdate,pesel,photopath,notes,fax)
     values(@firstname,@lastname,@address,@phone,@city,@country,@post_code,@region,@birthdate,@pesel,@photopath,@notes,@fax)
 end
 go
 ```
+3. Procedura dodająca nowy produkt
 
-3. Funkcja która oblicza całą kwotę do zapłaty przez klienta
+```sql
+create procedure add_product
+    @unitprice int,
+    @unitsinstock int,
+    @unitsinorder int,
+    @productname varchar(255)
+as
+begin
+    if exists (select 1 from products where productname = @productname)
+        begin
+            RAISERROR ('Nie mozna dodac produktu - produkt o takiej nazwie juz istnieje.', 16, 1);
+            return
+        end
+    else
+        begin
+            insert into products (unitprice, unitsinstock, unitsinorder, productname) values (@unitprice, @unitsinstock, @unitsinorder, @productname);
+        end
+end
+go
+```
+4. Procedura usuwająca produkt.
+   
+```sql
+create procedure remove_product
+    @productid int
+as
+begin
+    if exists (select 1 from products where productid = @productid)
+        begin
+            delete from products where productid = @productid;
+        end
+    else
+        begin
+            RAISERROR('Nie istnieje produkt o takim id.', 16, 1)
+            return;
+        end
+end
+go
+```
+5. Procedura usuwająca pokój.
+   
+```sql
+CREATE procedure remove_room
+@roomid int
+as
+begin
+    if exists (select 1 from reservated_rooms where roomid = @roomid)
+        begin
+            RAISERROR ('Nie można usunąć zarezerwowaengo pokoju.', 16, 1)
+            return;
+        end
+    else
+        begin
+            delete from rooms where roomid = @roomid;
+        end
+end
+go
+```
+6. Funkcja która oblicza całą kwotę do zapłaty przez klienta
 
 ```sql
 CREATE OR ALTER FUNCTION total_price()
@@ -542,8 +602,5 @@ RETURN (
 );
 ```
 
-## Triggery
-
-(dla każdego triggera należy wkleić kod polecenia definiującego trigger wraz z komentarzem)
 
 
