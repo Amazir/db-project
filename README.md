@@ -368,7 +368,7 @@ ALTER TABLE rooms ADD CONSTRAINT rooms_room_type
 
 ## Widoki
 
-1. customer_reservation wypisuje liste klientów i zarezerwowane przez nich pokoje
+1. Widok wypisuje liste klientów i zarezerwowane przez nich pokoje
 
 ```sql
 CREATE VIEW customer_reservations AS
@@ -389,7 +389,7 @@ JOIN
     reservations r ON c.customerid = r.customerid;
 ```
 
-2. order_details wypisuje szczegółowe dane odnośnie zamówionych posiłków i napoji
+2. Widok wypisuje szczegółowe dane odnośnie zamówionych posiłków i napoji
 
 ```sql
 CREATE VIEW order_details AS
@@ -410,7 +410,7 @@ JOIN
     products p ON po.productid = p.productid;
 ```
 
-3. payment_summary wypisuje informacje o dokonanych płatnościach przez klientów
+3. Widok wypisuje informacje o dokonanych płatnościach przez klientów
 
 ```sql
 CREATE VIEW payment_summary AS
@@ -433,7 +433,7 @@ JOIN
     payment_methods pm ON p.payment_methodid = pm.payment_methodid;
 ```
 
-4. customers_with_additional_charges wypisuje dane o klientach którzy muszą zapłacić dodatkowo za usterki
+4. Widok wypisuje dane o klientach którzy muszą zapłacić dodatkowo za usterki
 
 ```sql
 CREATE VIEW customers_with_additional_charges AS
@@ -457,7 +457,7 @@ WHERE
     r.additional > 0;
 ```
 
-5. available_rooms wypisuje cenę i numery pokoi których nie zarezerwowano
+5. Widok wypisuje cenę i numery pokoi których nie zarezerwowano
 
 ```sql
 CREATE VIEW available_rooms AS
@@ -468,6 +468,26 @@ JOIN room_type rt ON r.room_typeid = rt.room_typeid
 WHERE rr.roomid IS NULL;
 ```
 
+6. Widok wypisuje klientów którzy zamówili więcej niż jeden produkt
+
+```sql
+CREATE OR ALTER VIEW Customers_With_Multiple_Orders AS
+SELECT
+    c.customerid,
+    c.firstname,
+    c.lastname
+FROM
+    customers c
+    JOIN reservations r ON c.customerid = r.customerid
+    JOIN orders o ON r.reservationid = o.orderid
+    JOIN processed_orders po ON o.orderid = po.processed_orderid
+GROUP BY
+    c.customerid,
+    c.firstname,
+    c.lastname
+HAVING
+    COUNT(DISTINCT o.orderid) > 1;
+```
 
 ## Procedury/funkcje
 
