@@ -489,7 +489,7 @@ HAVING
     COUNT(DISTINCT o.orderid) > 1;
 ```
 
-## Procedury/funkcje
+## Procedury
 
 1. Procedura dodawania nowego pokoju do tabeli rooms.
 
@@ -601,7 +601,35 @@ begin
 end
 go
 ```
-6. Funkcja która oblicza całą kwotę do zapłaty przez klienta
+6. Procedura dodająca płatność
+   
+```sql
+CREATE procedure add_payment
+    @advance bit,
+    @reservationid int,
+    @payment_methodid int,
+    @payment_date date,
+    @value decimal
+as
+begin
+    if exists (select 1 from reservations where reservationid = @reservationid)
+    and exists (select 1 from payment_methods where payment_methodid = @payment_methodid)
+        begin
+            insert into payments (advance, reservationid, payment_methodid, payment_date, value)
+            values (@advance, @reservationid, @payment_methodid, @payment_date, @value)
+        end
+    else
+        begin
+            RAISERROR ('Nie istnieje rezerwacja o podanym id, lub podano niepoprawna metode platnosci.', 16, 1);
+            return
+        end
+end
+go
+```
+
+## Funkcje
+
+1. Funkcja która oblicza całą kwotę do zapłaty przez klienta
 
 ```sql
 CREATE OR ALTER FUNCTION total_price()
