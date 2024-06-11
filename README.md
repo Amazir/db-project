@@ -524,7 +524,7 @@ go
 3. Funkcja która oblicza całą kwotę do zapłaty przez klienta
 
 ```sql
-CREATE OR ALTER FUNCTION calculate_total_price()
+CREATE OR ALTER FUNCTION total_price()
 RETURNS TABLE
 AS
 RETURN (
