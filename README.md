@@ -521,6 +521,27 @@ end
 go
 ```
 
+3. Funkcja która oblicza całą kwotę do zapłaty przez klienta
+
+```sql
+CREATE OR ALTER FUNCTION calculate_total_price()
+RETURNS TABLE
+AS
+RETURN (
+    SELECT c.customerid, c.firstname, c. lastname,
+        COALESCE(SUM(po.price * COALESCE(o.discount,1)),0)
+        + COALESCE(SUM(o.tip),0) + COALESCE(SUM(r.additional),0)
+        + COALESCE(SUM(rr.price),0) - COALESCE(SUM(p.value),0)AS total_price
+    FROM customers c
+    LEFT JOIN reservations r ON c.customerid = r.customerid
+    LEFT JOIN reservated_rooms rr ON r.reservationid = rr.reservated_roomid
+    LEFT JOIN orders o ON o.orderid = r.reservationid
+    LEFT JOIN processed_orders po ON o.orderid = po.processed_orderid
+    LEFT JOIN payments p ON r.reservationid = p.paymentid
+    GROUP BY c.customerid, c.firstname, c.lastname
+);
+```
+
 ## Triggery
 
 (dla każdego triggera należy wkleić kod polecenia definiującego trigger wraz z komentarzem)
