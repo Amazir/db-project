@@ -457,6 +457,17 @@ WHERE
     r.additional > 0;
 ```
 
+5. available_rooms wypisuje cenę i numery pokoi których nie zarezerwowano
+
+```sql
+CREATE VIEW available_rooms AS
+SELECT r.roomid, r.number, rt.price
+FROM rooms r
+LEFT JOIN reservated_rooms rr ON r.roomid = rr.roomid
+JOIN room_type rt ON r.room_typeid = rt.room_typeid
+WHERE rr.roomid IS NULL;
+```
+
 
 ## Procedury/funkcje
 
@@ -479,7 +490,7 @@ BEGIN
     END
 END;
 ```
-1. Procedura dodawania nowego klienta do tabeli customers.
+2. Procedura dodawania nowego klienta do tabeli customers.
 
 ```sql
 CREATE PROCEDURE add_customer
