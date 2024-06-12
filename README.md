@@ -626,6 +626,49 @@ begin
 end
 go
 ```
+7. Procedura dodająca rezerwację (dodająca również pokój do zarezerwowanych)
+```sql
+CREATE procedure add_reservation
+    @customerid int,
+    @start_date date,
+    @enddate date,
+    @note varchar(255),
+    @additional decimal,
+    @roomid int,
+    @price decimal
+as
+begin
+    insert into reservations(customerid, start_date, end_date, note, additional)
+    values (@customerid, @start_date, @enddate, @note, @additional)
+
+    declare @reservationID int
+    set @reservationID = scope_identity()
+
+    exec add_reserved_room @reservationID, @roomid, @price
+end
+go
+```
+8. Procedura dodająca do konkretnej rezerwacji kolejny pokój
+```sql
+CREATE PROCEDURE add_reserved_room
+    @reservationid INT,
+    @roomid INT,
+    @price DECIMAL
+AS
+BEGIN
+    if exists (select 1 from reservated_rooms where roomid = @roomid)
+        begin
+            RAISERROR ('Pokoj o takim ID jest juz zarezerwowany.', 16, 1)
+            return
+        end
+    else
+        begin 
+            INSERT INTO reservated_rooms (reservationid, roomid, price)
+    VALUES (@reservationid, @roomid, @price);
+        end
+END;
+go
+```
 
 ## Funkcje
 
