@@ -672,25 +672,62 @@ go
 
 ## Funkcje
 
-1. Funkcja która oblicza całą kwotę do zapłaty przez klienta
+1. Funkcja obliczająca całość kwoty do zapłaty przez klienta za rezerwację (w tym dodatki, szkody)
 
 ```sql
-CREATE OR ALTER FUNCTION total_price()
-RETURNS TABLE
-AS
-RETURN (
-    SELECT c.customerid, c.firstname, c. lastname,
-        COALESCE(SUM(po.price * COALESCE(o.discount,1)),0)
-        + COALESCE(SUM(o.tip),0) + COALESCE(SUM(r.additional),0)
-        + COALESCE(SUM(rr.price),0) - COALESCE(SUM(p.value),0)AS total_price
-    FROM customers c
-    LEFT JOIN reservations r ON c.customerid = r.customerid
-    LEFT JOIN reservated_rooms rr ON r.reservationid = rr.reservated_roomid
-    LEFT JOIN orders o ON o.orderid = r.reservationid
-    LEFT JOIN processed_orders po ON o.orderid = po.processed_orderid
-    LEFT JOIN payments p ON r.reservationid = p.paymentid
-    GROUP BY c.customerid, c.firstname, c.lastname
-);
+CREATE FUNCTION total_price()
+    RETURNS TABLE
+        AS
+        RETURN (
+        WITH RoomCosts AS (
+            SELECT
+                r.customerid,
+                SUM(rr.price) AS room_total
+            FROM reservations r
+                     JOIN reservated_rooms rr ON r.reservationid = rr.reservationid
+            GROUP BY r.customerid
+        ),
+             OrderCosts AS (
+                 SELECT
+                     r.customerid,
+                     SUM(po.price * (1 - ISNULL(o.discount, 0))) AS order_total,
+                     SUM(o.tip) AS tip_total
+                 FROM reservations r
+                          JOIN orders o ON r.reservationid = o.reservationid
+                          JOIN processed_orders po ON o.orderid = po.orderid
+                 GROUP BY r.customerid
+             ),
+             AdditionalCosts AS (
+                 SELECT
+                     r.customerid,
+                     SUM(r.additional) AS additional_total
+                 FROM reservations r
+                 GROUP BY r.customerid
+             ),
+             PaymentTotals AS (
+                 SELECT
+                     r.customerid,
+                     SUM(p.value) AS payment_total
+                 FROM reservations r
+                          JOIN payments p ON r.reservationid = p.reservationid
+                 GROUP BY r.customerid
+             )
+        SELECT
+            c.customerid,
+            c.firstname,
+            c.lastname,
+            ISNULL(rc.room_total, 0) +
+            ISNULL(oc.order_total, 0) +
+            ISNULL(oc.tip_total, 0) +
+            ISNULL(ac.additional_total, 0) -
+            ISNULL(pt.payment_total, 0) AS total_price
+        FROM customers c
+                 LEFT JOIN RoomCosts rc ON c.customerid = rc.customerid
+                 LEFT JOIN OrderCosts oc ON c.customerid = oc.customerid
+                 LEFT JOIN AdditionalCosts ac ON c.customerid = ac.customerid
+                 LEFT JOIN PaymentTotals pt ON c.customerid = pt.customerid
+        )
+go
 ```
 
 
