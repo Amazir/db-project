@@ -1,20 +1,20 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2024-05-16 10:33:35.462
+-- Last modification date: 2024-06-10 12:39:21.699
 
 -- tables
 -- Table: customers
 CREATE TABLE customers (
-    customerid int  NOT NULL,
+    customerid int  NOT NULL IDENTITY,
     firstname varchar(255)  NOT NULL,
     lastname varchar(255)  NOT NULL,
     address varchar(255)  NOT NULL,
     phone varchar(255)  NOT NULL,
     city varchar(255)  NOT NULL,
     country varchar(255)  NOT NULL,
-    post_code varchar(255)  NOT NULL,
+    post_code varchar(255)  NULL,
     region varchar(255)  NULL,
     birthdate date  NOT NULL,
-    pesel int  NOT NULL,
+    pesel varchar(11)  NOT NULL,
     photopath varchar(255)  NULL,
     notes text  NULL,
     fax varchar(255)  NULL,
@@ -23,25 +23,25 @@ CREATE TABLE customers (
 
 -- Table: orders
 CREATE TABLE orders (
-    orderid int  NOT NULL,
+    orderid int  NOT NULL IDENTITY,
     orderdate date  NOT NULL,
     status bit  NOT NULL,
     tip decimal(10,2)  NOT NULL,
-    discount decimal(10,2)  NOT NULL,
+    discount decimal(10,2)  NULL,
     reservationid int  NOT NULL,
     CONSTRAINT orders_pk PRIMARY KEY  (orderid)
 );
 
 -- Table: payment_methods
 CREATE TABLE payment_methods (
-    payment_methodid int  NOT NULL,
+    payment_methodid int  NOT NULL IDENTITY,
     name varchar(255)  NOT NULL,
     CONSTRAINT payment_methodid PRIMARY KEY  (payment_methodid)
 );
 
 -- Table: payments
 CREATE TABLE payments (
-    paymentid int  NOT NULL,
+    paymentid int  NOT NULL IDENTITY,
     advance bit  NOT NULL,
     reservationid int  NOT NULL,
     payment_methodid int  NOT NULL,
@@ -52,15 +52,16 @@ CREATE TABLE payments (
 
 -- Table: processed_orders
 CREATE TABLE processed_orders (
-    processed_orderid int  NOT NULL,
+    processed_orderid int  NOT NULL IDENTITY,
     orderid int  NOT NULL,
     productid int  NOT NULL,
+    price decimal(10,2)  NOT NULL,
     CONSTRAINT processed_orders_pk PRIMARY KEY  (processed_orderid)
 );
 
 -- Table: products
 CREATE TABLE products (
-    productid int  NOT NULL,
+    productid int  NOT NULL IDENTITY,
     unitprice decimal(10,2)  NOT NULL,
     unitsinstock int  NOT NULL,
     unitsinorder int  NOT NULL,
@@ -70,7 +71,7 @@ CREATE TABLE products (
 
 -- Table: reservated_rooms
 CREATE TABLE reservated_rooms (
-    reservated_roomid int  NOT NULL,
+    reservated_roomid int  NOT NULL IDENTITY,
     roomid int  NOT NULL,
     reservationid int  NOT NULL,
     price decimal(10,2)  NOT NULL,
@@ -79,7 +80,7 @@ CREATE TABLE reservated_rooms (
 
 -- Table: reservations
 CREATE TABLE reservations (
-    reservationid int  NOT NULL,
+    reservationid int  NOT NULL IDENTITY,
     customerid int  NOT NULL,
     start_date date  NOT NULL,
     end_date date  NOT NULL,
@@ -90,7 +91,7 @@ CREATE TABLE reservations (
 
 -- Table: room_type
 CREATE TABLE room_type (
-    room_typeid int  NOT NULL,
+    room_typeid int  NOT NULL IDENTITY,
     beds int  NOT NULL,
     persons int  NOT NULL,
     description varchar(255)  NULL,
@@ -100,7 +101,7 @@ CREATE TABLE room_type (
 
 -- Table: rooms
 CREATE TABLE rooms (
-    roomid int  NOT NULL,
+    roomid int  NOT NULL IDENTITY,
     room_typeid int  NOT NULL,
     number varchar(255)  NOT NULL,
     CONSTRAINT rooms_pk PRIMARY KEY  (roomid)
